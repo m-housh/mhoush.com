@@ -1,10 +1,10 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
   name: "Mhoush",
-  platforms: [.macOS(.v10_15)],
+  platforms: [.macOS(.v12)],
   products: [
     .executable(
       name: "Mhoush",
