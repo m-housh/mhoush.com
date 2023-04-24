@@ -11,6 +11,29 @@ upgrades.
 
 <br />
 <br />
+Michael is passionate about helping the HVAC trade grow in skill and integrity.  He is also
+passionate about programming solutions (primarily in `Swift`) for the HVAC industry to automate 
+his business and help others automate theirs.
+
+<br />
+<br />
+Michael likes to think deeply about where the industry has been and where it is going.
+Coming up with innovative solutions to common problems that are faced, with a primary
+focus on residential HVAC and Home Performance.
+
+<br />
+<br />
+
+## Michael's Favorite Quote
+
+<blockquote>
+<p>Integrity is doing the right thing, even when no one is looking</p>
+<br />
+<p>~ C.S. Lewis</p>
+</blockquote>
+
+<br />
+<br />
 
 ### Michael is a proud contributor to many online groups / podcasts:
 <br />

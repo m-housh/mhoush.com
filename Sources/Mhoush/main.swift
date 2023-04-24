@@ -6,7 +6,7 @@ import Plot
 struct Mhoush: Website {
   enum SectionID: String, WebsiteSectionID {
     // Add the sections that you want your website to contain here:
-    case posts
+//    case posts
     case about
   }
   
@@ -20,7 +20,7 @@ struct Mhoush: Website {
   var description = "A description of Michael Housh"
   var language: Language { .english }
   var imagePath: Path? { nil }
-  var contactInfo: [ContactInfo] = ContactInfo.allCases
+  var contactInfo: [SidebarInfo] = SidebarInfo.allCases
 }
 
 // This will generate your website using the built-in Foundation theme:

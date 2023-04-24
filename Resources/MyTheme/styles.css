@@ -171,6 +171,17 @@ a {
     display: inline-block;
 }
 
+blockquote {
+  margin: 0;
+  background-color: grey;
+  border-radius: 5px;
+}
+
+blockquote p {
+  padding: 15px;
+  font-size: 1.5em;
+}
+
 .content {
     margin-bottom: 40px;
     float: left;
@@ -218,7 +229,7 @@ footer {
     text-align: center;
 }
 
-
+/* dark mode */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #222;
@@ -256,6 +267,7 @@ footer {
     }
 }
 
+/* small screens / mobile */
 @media(max-width: 600px) {
     .wrapper {
         padding: 40px 20px;

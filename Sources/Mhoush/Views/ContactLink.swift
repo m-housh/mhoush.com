@@ -1,7 +1,7 @@
 import Plot
 
 struct ContactInfoLink: Component {
-  var contactInfo: ContactInfo
+  var contactInfo: SidebarInfo
 
   var body: Component {
     Link(url: contactInfo.url) {
