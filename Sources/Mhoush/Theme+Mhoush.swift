@@ -24,19 +24,20 @@ private struct MhoushHTMLFactory: HTMLFactory {
       .body {
         SiteHeader(context: context, selectedSelectionID: nil)
         SiteSidebar()
-        Wrapper {
-          H1(index.title)
-          Paragraph(context.site.description)
-            .class("description")
-          H2("Latest content")
-          ItemList(
-            items: context.allItems(
-              sortedBy: \.date,
-              order: .descending
-            ),
-            site: context.site
-          )
-        }
+        Wrapper(index.content.body)
+//          H1(index.content.body)
+//          H1(index.title)
+//          Paragraph(context.site.description)
+//            .class("description")
+//          H2("Latest content")
+//          ItemList(
+//            items: context.allItems(
+//              sortedBy: \.date,
+//              order: .descending
+//            ),
+//            site: context.site
+//          )
+//        }
         SiteFooter()
       }
     )
