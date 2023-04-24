@@ -7,6 +7,7 @@ struct Mhoush: Website {
   enum SectionID: String, WebsiteSectionID {
     // Add the sections that you want your website to contain here:
     case posts
+    case about
   }
   
   struct ItemMetadata: WebsiteItemMetadata {
@@ -14,7 +15,7 @@ struct Mhoush: Website {
   }
   
   // Update these properties to configure your website:
-  var url = URL(string: "https://your-website-url.com")!
+  var url = URL(string: "https://mhoush.com")!
   var name = "Michael Housh"
   var description = "A description of Michael Housh"
   var language: Language { .english }

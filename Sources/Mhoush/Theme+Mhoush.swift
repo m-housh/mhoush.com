@@ -21,17 +21,9 @@ private struct MhoushHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: context.site),
-//      .head(for: index, on: context.site),
       .body {
         SiteHeader(context: context, selectedSelectionID: nil)
-        Wrapper {
-          AvatarImage()
-          List(context.site.contactInfo) { contact in
-            ContactInfoLink(contactInfo: contact)
-              .class("contact-link")
-          }
-          .class("contact-list")
-        }
+        SiteSidebar()
         Wrapper {
           H1(index.title)
           Paragraph(context.site.description)
@@ -50,16 +42,22 @@ private struct MhoushHTMLFactory: HTMLFactory {
     )
   }
   
-  func makeSectionHTML(for section: Section<Site>,
-                       context: PublishingContext<Site>) throws -> HTML {
+  func makeSectionHTML(
+    for section: Section<Site>,
+    context: PublishingContext<Site>
+  ) throws -> HTML {
     HTML(
       .lang(context.site.language),
-      .head(for: section, on: context.site),
+      .head(for: context.site),
       .body {
         SiteHeader(context: context, selectedSelectionID: section.id)
+        SiteSidebar()
         Wrapper {
-          H1(section.title)
-          ItemList(items: section.items, site: context.site)
+          Article {
+            Div(section.body)
+              .class("content")
+          }
+//          ItemList(items: section.items, site: context.site)
         }
         SiteFooter()
       }
@@ -70,7 +68,7 @@ private struct MhoushHTMLFactory: HTMLFactory {
                     context: PublishingContext<Site>) throws -> HTML {
     HTML(
       .lang(context.site.language),
-      .head(for: item, on: context.site),
+      .head(for: context.site),
       .body(
         .class("item-page"),
         .components {
@@ -88,11 +86,13 @@ private struct MhoushHTMLFactory: HTMLFactory {
     )
   }
   
-  func makePageHTML(for page: Page,
-                    context: PublishingContext<Site>) throws -> HTML {
+  func makePageHTML(
+    for page: Page,
+    context: PublishingContext<Site>
+  ) throws -> HTML {
     HTML(
       .lang(context.site.language),
-      .head(for: page, on: context.site),
+      .head(for: context.site),
       .body {
         SiteHeader(context: context, selectedSelectionID: nil)
         Wrapper(page.body)
@@ -101,11 +101,13 @@ private struct MhoushHTMLFactory: HTMLFactory {
     )
   }
   
-  func makeTagListHTML(for page: TagListPage,
-                       context: PublishingContext<Site>) throws -> HTML? {
+  func makeTagListHTML(
+    for page: TagListPage,
+    context: PublishingContext<Site>
+  ) throws -> HTML? {
     HTML(
       .lang(context.site.language),
-      .head(for: page, on: context.site),
+      .head(for: context.site),
       .body {
         SiteHeader(context: context, selectedSelectionID: nil)
         Wrapper {
@@ -155,122 +157,5 @@ private struct MhoushHTMLFactory: HTMLFactory {
         SiteFooter()
       }
     )
-  }
-}
-
-private struct Wrapper: ComponentContainer {
-  @ComponentBuilder var content: ContentProvider
-  
-  var body: Component {
-    Div(content: content).class("wrapper")
-  }
-}
-
-private struct SiteHeader<Site: Website>: Component {
-  var context: PublishingContext<Site>
-  var selectedSelectionID: Site.SectionID?
-  
-  var body: Component {
-    Header {
-      Wrapper {
-        Link(context.site.name, url: "/")
-          .class("site-name")
-        
-        if Site.SectionID.allCases.count > 1 {
-          navigation
-        }
-      }
-    }
-  }
-  
-  private var navigation: Component {
-    Navigation {
-      List(Site.SectionID.allCases) { sectionID in
-        let section = context.sections[sectionID]
-        
-        return Link(section.title,
-                    url: section.path.absoluteString
-        )
-        .class(sectionID == selectedSelectionID ? "selected" : "")
-      }
-    }
-  }
-}
-
-private struct ItemList<Site: Website>: Component {
-  var items: [Item<Site>]
-  var site: Site
-  
-  var body: Component {
-    List(items) { item in
-      Article {
-        H1(Link(item.title, url: item.path.absoluteString))
-        ItemTagList(item: item, site: site)
-        Paragraph(item.description)
-      }
-    }
-    .class("item-list")
-  }
-}
-
-private struct ItemTagList<Site: Website>: Component {
-  var item: Item<Site>
-  var site: Site
-  
-  var body: Component {
-    List(item.tags) { tag in
-      Link(tag.string, url: site.path(for: tag).absoluteString)
-    }
-    .class("tag-list")
-  }
-}
-
-private struct SiteFooter: Component {
-  var body: Component {
-    Footer {
-      Paragraph {
-        Text("Generated using ")
-        Link("Publish", url: "https://github.com/johnsundell/publish")
-      }
-      Paragraph {
-        Link("RSS feed", url: "/feed.rss")
-      }
-    }
-  }
-}
-
-private struct Icon: Component {
-  let text: String
-  
-  var body: Component {
-    Node<HTML.AnchorContext>
-      .element(named: "i", attributes: [.class(text + " l-box social-icon")])
-  }
-}
-
-private struct ContactInfoLink: Component {
-  var contactInfo: ContactInfo
-  
-  var body: Component {
-    Link(url: contactInfo.url) {
-      Div {
-        Icon(text: contactInfo.icon)
-        Text(contactInfo.title)
-      }
-      .class("l-box")
-    }
-  }
-}
-
-private struct AvatarImage: Component {
-  
-  var body: Component {
-    Div {
-      Image(
-        url: "https://i.ibb.co/VQMSYTP/502-E7-F3-A-374-B-4-CEB-9-E29-05-E4473505-D7-1-105-c.jpg",
-        description: "502-E7-F3-A-374-B-4-CEB-9-E29-05-E4473505-D7-1-105-c"
-      )
-    }
-    .class("avatar-image")
   }
 }

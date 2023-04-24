@@ -87,22 +87,44 @@ a {
 
 .contact-list > li {
     display: block;
-    padding: 20px;
-    margin-bottom: 20px;
 }
 
 .contact-link {
-  margin: 20px;
   border-radius 20px;
   background-color: #333;
 }
 
 .l-box {
-  padding: 0.8em;
+  padding-right: 0.8em;
+  padding-bottom: 5px;
+}
+
+.sidebar {
+  float: left;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidebar-header {
+  padding-bottom: 10px;
+}
+
+.sidebar > div {
+  padding: 1em;
 }
 
 .social-icon {
-  font-size: 1.5em;
+  font-size: 1em;
+}
+
+.social-link {
+  font-size: 1em;
+  text-decoration: none;
 }
 
 .item-list > li {
@@ -151,6 +173,20 @@ a {
 
 .content {
     margin-bottom: 40px;
+    float: left;
+    width: 100%;
+}
+
+.content > p {
+  font-size: 1.25em;
+  line-height: 1.25em;
+}
+
+.content > li {
+  display: block;
+  margin-right: 15px;
+  padding-bottom: 10px;
+  font-size: 1.25em;
 }
 
 .browse-all {
@@ -166,7 +202,22 @@ a {
 
 footer {
     color: #8a8a8a;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
+
+.footer {
+    color: #8a8a8a;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -197,6 +248,11 @@ footer {
       border: 1px solid #bfbfbf;
       width: 220px;
       height: 220px;
+    }
+
+    .sidebar {
+      background-color: #000;
+      height: 100%;
     }
 }
 
