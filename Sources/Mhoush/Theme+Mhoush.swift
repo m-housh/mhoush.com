@@ -25,6 +25,7 @@ private struct MhoushHTMLFactory: HTMLFactory {
         SiteHeader(context: context, selectedSelectionID: nil)
         SiteSidebar()
         Wrapper(index.content.body)
+          .class("content")
 //          H1(index.content.body)
 //          H1(index.title)
 //          Paragraph(context.site.description)
