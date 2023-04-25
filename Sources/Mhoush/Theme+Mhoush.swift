@@ -22,24 +22,27 @@ private struct MhoushHTMLFactory: HTMLFactory {
       .lang(context.site.language),
       .head(for: context.site),
       .body {
-        SiteHeader(context: context, selectedSelectionID: nil)
-        SiteSidebar()
-        Wrapper(index.content.body)
-          .class("content")
-//          H1(index.content.body)
-//          H1(index.title)
-//          Paragraph(context.site.description)
-//            .class("description")
-//          H2("Latest content")
-//          ItemList(
-//            items: context.allItems(
-//              sortedBy: \.date,
-//              order: .descending
-//            ),
-//            site: context.site
-//          )
-//        }
-        SiteFooter()
+        Div {
+          SiteHeader(context: context, selectedSelectionID: nil)
+          SiteSidebar()
+          Wrapper(index.content.body)
+            .class("content")
+          //          H1(index.content.body)
+          //          H1(index.title)
+          //          Paragraph(context.site.description)
+          //            .class("description")
+          //          H2("Latest content")
+          //          ItemList(
+          //            items: context.allItems(
+          //              sortedBy: \.date,
+          //              order: .descending
+          //            ),
+          //            site: context.site
+          //          )
+          //        }
+          SiteFooter()
+        }
+        .class("main-content")
       }
     )
   }
