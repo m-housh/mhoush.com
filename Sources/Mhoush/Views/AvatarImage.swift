@@ -5,12 +5,12 @@ struct AvatarImage: Component {
   let description: String
 
   var body: Component {
-    Div {
+//    Div {
       Image(
         url: url,
         description: description
       )
-    }
+//    }
     .class("avatar-image")
   }
 }

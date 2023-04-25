@@ -27,9 +27,9 @@ focus on residential HVAC and Home Performance.
 ## Michael's Favorite Quote
 
 <blockquote>
-<p>Integrity is doing the right thing, even when no one is looking</p>
+<p>Integrity is doing the right thing, even when no one is watching!</p>
 <br />
-<p>~ C.S. Lewis</p>
+<p><b>~ C.S. Lewis</b></p>
 </blockquote>
 
 <br />
