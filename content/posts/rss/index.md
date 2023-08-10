@@ -1,6 +1,7 @@
 ---
 author: "Michael Housh"
 categories: ["How To"]
+copy: true
 date: 2023-08-10T17:08:14-04:00
 draft: false
 tags: ["Software", "How To"]
