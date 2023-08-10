@@ -5,6 +5,6 @@ serve:
 	@hugo server --buildDrafts --disableFastRender
 
 pull-request:
-	gh pr --base main --fill
+	gh pr create --base main --fill
 
 pr: pull-request
