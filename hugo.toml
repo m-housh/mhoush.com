@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://mhoush.com"
 languageCode = "en-us"
 theme = "poison"
 paginate = 10
@@ -6,6 +6,8 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
 
 # NOTE: If using Disqus as commenting engine, uncomment and configure this line
 # disqusShortname = "yourDisqusShortname"
+[author]
+    name = "Michael Housh"
 
 [params]
     brand = "Michael Housh"                      # name of your site - appears in the sidebar
