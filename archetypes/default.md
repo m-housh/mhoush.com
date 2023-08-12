@@ -1,6 +1,7 @@
 ---
 author: "Michael Housh"
 categories: []
+copy: true
 date: {{ .Date }}
 draft: true
 tags: []
