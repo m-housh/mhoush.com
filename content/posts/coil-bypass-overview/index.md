@@ -31,8 +31,9 @@ the supply air temperature closer to the existing home's temperature while still
 and sensible loads of the home.  A warmer duct system reduces the losses of the duct to unconditioned
 spaces as well as reduces the risk for duct condensation.
 
-The coil bypass strategy, as far as I know, was pioneered by Harry Boody of Energy Innovations and
-Scientific Environmental Design, Inc.  However their websites are not longer active, so I'm
+The coil bypass strategy, as far as I know, was pioneered by
+[Harry Boody](https://www.linkedin.com/in/harry-boody-9b8a4366/) of Energy Innovations and
+Scientific Environmental Design, Inc.  However their websites are no longer active, so I'm
 not sure if they are still active in the HVAC design space or not.
 
 ## The Problem
@@ -69,7 +70,7 @@ Below is a table of the required CFM to meet the different air changes per hour.
 
 |     |  CFM  |
 | --- | :---: |
-| $ (22,500 \times 3)/60 $ | ***1,125 @ 3 ACH*** |
+| $ (22,500 \times 3)/60 $ | ***1,125 @ 3 ACH*** |;:
 | $ (22,500 \times 4)/60 $ | ***1,500 @ 4 ACH*** |
 | $ (22,500 \times 5)/60 $ | ***1,875 @ 5 ACH*** |
 
@@ -78,7 +79,49 @@ As you can see we have a discrepency of meeting even the low end of 3 ACH. The h
 viable way, by decoupling the total system airflow from the coil airflow without, which eliminates
 the need of an auxilary fan / system that circulates air through some sort of filtration system.
 
+### Multi-Stage Systems
+
+A challenge with multi-stage systems, even when sized properly, is that we
+often run at part-load conditions, and spend the majority of the time in lower stages.
+The lower stages often do worse at dehumidification than when running at full load.
+
+When the equipment runs in lower stages on a traditional system the total system airflow is reduced even
+further from the recommended air changes per hour.  This reduced airflow also causes the throw
+of the air from the registers to be reduced which can lead to increased odds of stratification,
+poor air mixing, and increased potential for poor mean radiant temperatures (MRT) of the surfaces.
+The decreased airflow in low stages, lowers the velocity in the duct system, while low velocity is not a
+concern, it does increase the duct gains and increase the possibility of condensation on the ducts when they're
+located outside of the thermal envelope of the building.
+
+Let's imagine we have a duct system that has high wall registers located in a soffit at the interior
+wall that moves 100 CFM and we are trying to throw the air to the exterior wall which includes a window.
+The wall is @ 12 feet from the register. We've selected a register that meets the criteria, at high stage
+airflow it has a throw of 11.5 feet (shown as the green rectangle). When the system runs in low stage,
+the airflow is reduced to 70% of high stage (70 CFM), which would give us a throw from the register of
+@ 7 feet (shown as the red rectangle).
+
+![register-throw](register-throw.png)
+
+The reduced flow through the register causes the air to only make it about 60% across the room before
+reaching it's terminal velocity, which can cause the room to feel uncomfortable since the air never
+reaches the exterior wall and window.
+
+By decoupling the fan from the coil airflow it is possible to run in low stages, still have
+adequate dehumidification performance out of the system, and achieve the proper throw from the
+registers.
+
+## Conclusion
+
+In this article we've begun to scratch the surface of what a coil bypass strategy is in an HVAC
+system, as well as some of the challenges that it can help solve.  We've learned about why we
+may desire to decouple the total system airflow from the coil airflow.
+
+In future articles we will continue to explore some of the features, benefits, and challenges
+presented by such a strategy.
+
 ## Related Resources
 
-[Bypass Dehumidification / Airflow HVAC Design](https://hvacrschool.com/bypass-dehumidification-airflow-hvac-design/)
+[HVAC School - Bypass Dehumidification / Airflow HVAC Design](
+    https://hvacrschool.com/bypass-dehumidification-airflow-hvac-design/
+)
 
