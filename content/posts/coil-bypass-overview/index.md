@@ -3,7 +3,7 @@ author: "Michael Housh"
 categories: ["Coil Bypass"]
 copy: true
 date: 2023-08-10T20:26:42-04:00
-draft: true
+draft: false
 hideToc: false
 series: "Coil Bypass"
 tags: ["Coil Bypass", "HVAC"]
