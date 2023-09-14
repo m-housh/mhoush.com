@@ -4,7 +4,7 @@ categories:
     - General
 copy: true
 date: 2023-09-14T18:21:29-04:00
-draft: true
+draft: false
 tags:
     - HVAC
     - General
