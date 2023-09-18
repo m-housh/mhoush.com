@@ -5,8 +5,7 @@ categories:
 copy: true
 date: 2023-09-18T14:28:26-04:00
 draft: false
-images:
-    - psychrometrics-logo.png
+image: logo.png
 series: Software
 tags:
     - HVAC
