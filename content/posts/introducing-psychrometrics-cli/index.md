@@ -6,7 +6,7 @@ copy: true
 date: 2023-09-18T14:28:26-04:00
 draft: false
 images:
-    - logo.png
+    - https://github.com/m-housh/mhoush.com/blob/main/content/posts/introducing-psychrometrics-cli/logo.png
 series: Software
 tags:
     - HVAC
