@@ -5,7 +5,7 @@ categories:
 copy: true
 date: 2023-09-19T11:13:02-04:00
 draft: false
-image: calculator.png
+image: calculator-og.png
 series: Tech-Tips
 tags:
     - Formulas
