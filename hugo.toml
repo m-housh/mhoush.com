@@ -15,6 +15,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     description = "HVAC, Programming, Home Performance, Design" # Used as default meta description if not specified in front matter
     dark_mode = true                      # optional - defaults to false
     favicon = "/icons/favicon.ico"             # path to favicon (defaults to favicon.png)
+    hideToc = false
 
     # MENU PLACEHOLDER
     # Menu dict keys:
