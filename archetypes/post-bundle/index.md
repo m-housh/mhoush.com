@@ -1,10 +1,14 @@
 ---
 author: "Michael Housh"
-categories: []
+categories:
+    - HVAC
 copy: true
 date: {{ .Date }}
 draft: true
-tags: []
+image:
+series:
+tags:
+    - HVAC
 title: "{{ replace .Name "-" " " | title }}"
 ---
 
