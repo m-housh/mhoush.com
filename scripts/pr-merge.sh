@@ -82,13 +82,13 @@ function parse_merge_type() {
     # return the appropriate merge strategy option.
     case $merge_choice in
       merge)
-        merge_choice="--merge"
+        merge_type="--merge"
         ;;
       rebase)
-        merge_choice="--rebase"
+        merge_type="--rebase"
         ;;
       squash)
-        merge_choice="--squash"
+        merge_type="--squash"
         ;;
     esac
   fi
