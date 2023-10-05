@@ -8,7 +8,7 @@ serve:
 
 .PHONY: pr
 pr:
-	gh pr --base main --fill
+	gh pr create --base main --fill
 
 .PHONY: pr-merge
 pr-merge:
