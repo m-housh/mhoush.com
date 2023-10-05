@@ -7,7 +7,8 @@ serve:
 	@hugo server --buildDrafts --disableFastRender
 
 .PHONY: pr
-pr: pull-request
+pr:
+	gh pr --base main --fill
 
 .PHONY: pr-merge
 pr-merge:
