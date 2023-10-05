@@ -1,10 +1,38 @@
 #!/usr/bin/env zsh
 
-GIT_COLOR="#f14e32"
+RED_COLOR="#f14e32"
+DEBUG=
+
+#################### Options ####################
+number=
+mergeOpt=
+rebaseOpt=
+declare -a stateOpt=("open")
+squashOpt=
+verboseOpt=
+
+zparseopts -D -E -- \
+  {m,-merge}=mergeOpt \
+  {r,-rebase}=rebaseOpt \
+  {s,-squash}=squashOpt \
+  -state+:=stateOpt \
+  {v,-verbose}=verboseOpt
+
+state="${stateOpt[-1]}"
+number=$1
+DEBUG=$verboseOpt
+
+#################### Helpers ####################
+
+function debug_print() {
+  if [[ -n $DEBUG ]]; then
+    echo "DEBUG: $@"
+  fi
+}
 
 # Apply color style to text.
-function git_color_text () {
-  gum style --foreground "$GIT_COLOR" "$1"
+function color_text () {
+  gum style --foreground "$RED_COLOR" "$1"
 }
 
 # Select a pull-request from a list.
@@ -20,17 +48,32 @@ function select_pr() {
     --template '{{range .}}{{printf "%v" .number}} {{.title}}{{"\n"}}{{end}}')"
 
   # Check that there are pull-requests returned.
-  if [[ -n "$prs" ]]; then
+  if [[ ${#prs} -eq 1 ]]; then
+    echo ${prs[-1]}
+  elif [[ -n "$prs" ]]; then
     choice=$(echo "$prs" | tr '' '\n' | gum choose)
     echo $(cut -d ' ' -f1 <<< "$choice")
   else
-    echo "No $(git_color_text $state) pull-requests."
-    return 1
+    echo "No $(color_text $state) pull-requests."
+    exit 0
   fi
 }
 
-function choose_merge_type() {
-  echo "Choose the $(git_color_text merge) strategy."
+function parse_merge_type() {
+
+  # check of an option was passed in.
+  if [[ -n $mergeOpt ]]; then
+    echo "--merge"
+    return 0
+  elif [[ -n $rebaseOpt ]]; then
+    echo "--rebase"
+    return 0
+  elif [[ -n $squashOpt ]]; then
+    echo "--squash"
+    return 0
+  fi
+
+  echo "Choose the $(color_text merge) strategy."
   merge_type="$(gum choose merge rebase squash)"
 
   # return the appropriate merge strategy option.
@@ -49,9 +92,29 @@ function choose_merge_type() {
 
 function merge_pr() {
   number=${1}
-  merge_type=$(choose_merge_type)
+  merge_type=$(parse_merge_type)
+  if [[ -z $merge_type ]]; then
+    echo "Merge type not found."
+    exit 1
+  fi
   gh pr merge "$number" "$merge_type"
 }
 
-select_pr "$1"
-#choose_merge_type
+#################### Main ####################
+
+debug_print "all-state: $stateOpt"
+debug_print "state: $state"
+
+if [[ -z "$number" ]]; then
+  number=$(select_pr $state)
+fi
+
+debug_print "number: $number"
+
+if [[ -z "$number" ]]; then
+  exit 1
+fi
+
+merge_pr "$number"
+
+#parse_merge_type
