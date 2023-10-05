@@ -6,6 +6,7 @@ DEBUG=
 #################### Options ####################
 number=
 mergeOpt=
+merge_type=
 rebaseOpt=
 declare -a stateOpt=("open")
 squashOpt=
@@ -39,23 +40,27 @@ function color_text () {
 function select_pr() {
 
   # The pull-request type to fetch
-  state="${1:=open}"
+  local state="${1:=open}"
 
    # Get the list of pull-requests matching the state.
-  prs="$(gh pr list \
+   local prs="$(gh pr list \
     --state $state \
     --json number,title \
     --template '{{range .}}{{printf "%v" .number}} {{.title}}{{"\n"}}{{end}}')"
 
   # Check that there are pull-requests returned.
-  if [[ ${#prs} -eq 1 ]]; then
-    echo ${prs[-1]}
+  local nums=(${=$(echo "$prs" | grep -o -E '[0-9]+')})
+
+  debug_print "nums: $nums"
+  debug_print "prs-count: ${#nums}"
+
+  if [[ ${#nums} -eq 1 ]]; then
+    number="${nums}"
   elif [[ -n "$prs" ]]; then
-    choice=$(echo "$prs" | tr '' '\n' | gum choose)
-    echo $(cut -d ' ' -f1 <<< "$choice")
+    local choice=$(echo "$prs" | tr '' '\n' | gum choose)
+    number=$(cut -d ' ' -f1 <<< "$choice")
   else
     echo "No $(color_text $state) pull-requests."
-    exit 0
   fi
 }
 
@@ -63,41 +68,49 @@ function parse_merge_type() {
 
   # check of an option was passed in.
   if [[ -n $mergeOpt ]]; then
-    echo "--merge"
-    return 0
+    merge_type="--merge"
   elif [[ -n $rebaseOpt ]]; then
-    echo "--rebase"
-    return 0
+    merge_type="--rebase"
   elif [[ -n $squashOpt ]]; then
-    echo "--squash"
-    return 0
+    merge_type="--squash"
   fi
 
-  echo "Choose the $(color_text merge) strategy."
-  merge_type="$(gum choose merge rebase squash)"
+  if [[ -z $merge_type ]]; then
+    echo "Choose the $(color_text merge) strategy."
+    local merge_choice="$(gum choose merge rebase squash)"
 
-  # return the appropriate merge strategy option.
-  case $merge_type in
-    merge)
-      echo "--merge"
-      ;;
-    rebase)
-      echo "--rebase"
-      ;;
-    squash)
-      echo "--squash"
-      ;;
-  esac
+    # return the appropriate merge strategy option.
+    case $merge_choice in
+      merge)
+        merge_choice="--merge"
+        ;;
+      rebase)
+        merge_choice="--rebase"
+        ;;
+      squash)
+        merge_choice="--squash"
+        ;;
+    esac
+  fi
 }
 
 function merge_pr() {
-  number=${1}
-  merge_type=$(parse_merge_type)
+  #local number="${1}"
+  parse_merge_type
   if [[ -z $merge_type ]]; then
-    echo "Merge type not found."
-    exit 1
+    echo "$(color_text "Merge") type not found."
+    exit 0
   fi
-  gh pr merge "$number" "$merge_type"
+
+  if [[ -z $number ]]; then
+    echo "$(color_text "Number") not found."
+    exit 0
+  fi
+
+  debug_print "Merging number: $number"
+  debug_print "Merge strategy: $merge_type"
+
+  gh pr merge $merge_type $number
 }
 
 #################### Main ####################
@@ -105,16 +118,16 @@ function merge_pr() {
 debug_print "all-state: $stateOpt"
 debug_print "state: $state"
 
-if [[ -z "$number" ]]; then
-  number=$(select_pr $state)
+if [[ -z $number ]]; then
+  select_pr $state
 fi
 
 debug_print "number: $number"
 
-if [[ -z "$number" ]]; then
-  exit 1
+if [[ -z $number ]]; then
+  debug_print "Exiting, no $(color_text "number") found."
+  exit 0
 fi
 
 merge_pr "$number"
-
 #parse_merge_type
