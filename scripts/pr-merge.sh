@@ -5,22 +5,22 @@ DEBUG=
 
 #################### Options ####################
 number=
-declare -a mergeOpt=("--merge")
-declare -a stateOpt=("open") # generally only used for debugging.
-verboseOpt=
+declare -a merge_opt=("--merge")
+declare -a state_opt=("open") # generally only used for debugging.
+verbose_opt=
 
 zparseopts -D -F -K -- \
-  {c,-choose}=mergeOpt \
-  {m,-merge}=mergeOpt \
-  {r,-rebase}=mergeOpt \
-  {s,-squash}=mergeOpt \
-  -state+:=stateOpt \
-  {v,-verbose}=verboseOpt
+  {c,-choose}=merge_opt \
+  {m,-merge}=merge_opt \
+  {r,-rebase}=merge_opt \
+  {s,-squash}=merge_opt \
+  -state+:=state_opt \
+  {v,-verbose}=verbose_opt
 
-DEBUG=$verboseOpt
-merge_type=${mergeOpt[-1]}
+DEBUG=$verbose_opt
+merge_type=${merge_opt[-1]}
 number=$1
-state=${stateOpt[-1]}
+state=${state_opt[-1]}
 
 #################### Helpers ####################
 
@@ -89,7 +89,6 @@ debug_print "Begin"
 debug_print "number: $number"
 debug_print "merge-type: $merge_type"
 debug_print "state: $state"
-debug_print "merge-opt: $mergeOpt"
 
 if [[ -z $number ]]; then
   select_pr
