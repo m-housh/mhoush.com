@@ -1,5 +1,13 @@
 {{ define "main" -}}
 <div class="posts">
+   <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
+  <p><div id="search"></div></p>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            new PagefindUI({ element: "#search", showSubResults: true });
+        });
+    </script>
     {{ range (.Paginate (where .Site.RegularPages "Type" "posts")).Pages }}
     <article class="post">
         {{ partial "post/info.html" . }}

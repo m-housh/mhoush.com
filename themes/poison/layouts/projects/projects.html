@@ -4,7 +4,7 @@
 {{ end }}
 <h1 class="title">{{ .Title }}</h1>
 <div class="posts">
-    {{ range .Paginator.Pages }}
+     {{ range .Paginator.Pages }}
         <div class="project">
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <p>

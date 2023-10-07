@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --gc"
+command = "hugo --gc && npx -y pagefind --site public"
 
 [context.production.environment]
 HUGO_VERSION = "0.117.0"
@@ -8,13 +8,13 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.deploy-preview]
-command = "hugo --gc --buildFuture -b $DEPLOY_PRIME_URL"
+command = "hugo --gc --buildFuture -b $DEPLOY_PRIME_URL && npx -y pagefind --site public"
 
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.117.0"
 
 [context.branch-deploy]
-command = "hugo --gc -b $DEPLOY_PRIME_URL"
+command = "hugo --gc -b $DEPLOY_PRIME_URL && npx -y pagefind --site public"
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.117.0"
