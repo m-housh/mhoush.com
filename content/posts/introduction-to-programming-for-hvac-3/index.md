@@ -1,36 +1,39 @@
 ---
 author: "Michael Housh"
 categories:
-    - HVAC
-    - Programming
+  - HVAC
+  - Programming
 copy: true
 date: 2023-09-24T15:37:53-04:00
 draft: false
 image: part3-banner.png
+featuredImage: part3-banner.png
 series: Programming for HVAC
 tags:
-    - HVAC
-    - Programming
-    - Software
+  - HVAC
+  - Programming
+  - Software
 title: "Introduction to Programming for HVAC Part-3"
 ---
 
-![banner](part3-banner.png)
-
-In this article we will put together some of the pieces from the last 2 articles, and build our first
-program.  If you have missed the first articles, then you can catch up [here](https://mhoush.com/series/programming-for-hvac/) before continuing with this article.
+In this article we will put together some of the pieces from the last 2
+articles, and build our first program. If you have missed the first articles,
+then you can catch up [here](https://mhoush.com/series/programming-for-hvac/)
+before continuing with this article.
 
 # Getting Started
 
 We are going to make our first script / program. This first program is really
-just setting up some building blocks for our next program we will write, that will
-remove the background from an image.
+just setting up some building blocks for our next program we will write, that
+will remove the background from an image.
 
 ## Creating a scripts directory
 
-We learned in the [first article](https://mhoush.com/posts/introduction-to-programming-for-hvac-1/) how to use
-our terminal. Today we are going to use some of the commands we learned to create a directory where we can
-store our script and future scripts that we write.
+We learned in the
+[first article](https://mhoush.com/posts/introduction-to-programming-for-hvac-1/)
+how to use our terminal. Today we are going to use some of the commands we
+learned to create a directory where we can store our script and future scripts
+that we write.
 
 **Create a directory**
 
@@ -38,10 +41,11 @@ store our script and future scripts that we write.
 mkdir -p ~/.local/bin
 ```
 
-The above command will create a "hidden" directory in your home folder. We can go ahead and move into the directory we
-just created.
+The above command will create a "hidden" directory in your home folder. We can
+go ahead and move into the directory we just created.
 
-> **Note:** The `-p` option allows us to create nested directories if the parent directory doesn't exist.
+> **Note:** The `-p` option allows us to create nested directories if the parent
+> directory doesn't exist.
 
 ```bash
 cd ~/.local/bin
@@ -49,7 +53,8 @@ cd ~/.local/bin
 
 ## Hello World
 
-It is common in programming to start out with a "Hello World" program when learning a new scripting paradigm. So let's jump in and get started.
+It is common in programming to start out with a "Hello World" program when
+learning a new scripting paradigm. So let's jump in and get started.
 
 **Creating our script file:**
 
@@ -63,12 +68,12 @@ touch hello-world.sh
 open hello-world.sh
 ```
 
-The above command should open the file in the `TextEdit` application.  In order
+The above command should open the file in the `TextEdit` application. In order
 to make the text edit application to not auto-capitalize words and play more
 nicely, we need to adjust some settings. Open the settings by pressing `⌘,`.
 
-In the **Format** section, select *Plain text* and in the **Options** section
-de-select *Check spelling as you type*.
+In the **Format** section, select _Plain text_ and in the **Options** section
+de-select _Check spelling as you type_.
 
 ![text-settings](text-settings.png)
 
@@ -76,7 +81,7 @@ At this point for changes to take place, you will need to close the file and
 re-open.
 
 > **Tip:** In your terminal you can run the last command in your history by
-using the `↑` (Up) arrow key.
+> using the `↑` (Up) arrow key.
 
 Now that the file is open again, we will write our hello-world program. The
 contents of your file should look like the following:
@@ -90,9 +95,9 @@ echo 'Hello World!'
 The first line is referred to as the `shebang`, this tells your computer which
 shell interperter to run your file. I have not explained the shell yet, but it
 currently would just muddy the waters a bit, but there are several shell
-interperters on your computer with the `sh` posix shell being one of the most universal /
-lowest level ones, which is why I'm choosing this one (in other words this
-script would work on just about any machine you were on).
+interperters on your computer with the `sh` posix shell being one of the most
+universal / lowest level ones, which is why I'm choosing this one (in other
+words this script would work on just about any machine you were on).
 
 The second line we are using the built-in `echo` command and passing it the
 'Hello World!' argument.
@@ -136,20 +141,20 @@ the file.
 ```
 
 > **Note:** We have to prefix the file name with `./` in the above command so
-that it knows where to find our file. The `./` is saying run this file in our
-current directory.  In the future we will setup our shell so that it knows to
-look in our `~/.local/bin` directory for scripts, so that we can call them
-without this prefix.
+> that it knows where to find our file. The `./` is saying run this file in our
+> current directory. In the future we will setup our shell so that it knows to
+> look in our `~/.local/bin` directory for scripts, so that we can call them
+> without this prefix.
 
 ## Conclusion
 
 Congratulations, in this article we wrote our first program. We learned how to
 edit the file, set it's permissions, and execute the program from our terminal.
 I should mention that the `TextEdit` application is generally not how you would
-program, people typically use what is known as an `IDE (integrated development
-environment)`, however I chose to use the `TextEdit` application because it is
-built-in to `macOS` and allowed us to accomplish our goal without downloading
-other software.
+program, people typically use what is known as an
+`IDE (integrated development environment)`, however I chose to use the
+`TextEdit` application because it is built-in to `macOS` and allowed us to
+accomplish our goal without downloading other software.
 
 In our upcoming articles, we will write a program that I hope is useful to you /
 something that you can build upon and use for a long time. Thank you for reading

@@ -7,14 +7,13 @@ copy: true
 date: 2023-10-04T21:30:42-04:00
 draft: false
 image: banner.png
+featuredImage: banner.png
 series: HVAC
 tags:
   - HVAC
   - General
 title: "Free Quotes ≠ Good"
 ---
-
-![banner](banner.png)
 
 I found myself re-reading the
 [ACCA Quality Installation Standard](https://www.acca.org/communities/community-home/librarydocuments/viewdocument?DocumentKey=b1d2a39d-fda8-4af9-b8de-0ae579bfe24a)
