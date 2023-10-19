@@ -5,10 +5,11 @@ categories:
 copy: true
 date: {{ .Date }}
 draft: true
-image:
+image: banner.png
+featuredImage: banner.png
 series:
+slug: {{ .Name }}
 tags:
     - HVAC
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ substr (replace .Name "-" " ") 15 | title }}"
 ---
-
