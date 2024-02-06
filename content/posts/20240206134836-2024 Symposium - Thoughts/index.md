@@ -3,7 +3,7 @@ author: "Michael Housh"
 categories:
   - HVAC
 copy: true
-draft: true
+draft: false
 date: 2024-02-06T08:48:37-05:00
 lastmod: 2024-02-06T08:48:37-05:00
 image: banner.png
