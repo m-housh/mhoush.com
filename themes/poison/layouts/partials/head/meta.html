@@ -10,19 +10,19 @@
   {{ .Scratch.Set "description" .Site.Params.Description }}
 {{ else }}
   {{ .Scratch.Set "description" .Description }}
-{{ end }} 
+{{ end }}
 
 {{ if .IsSection }}
   {{ .Scratch.Set "title" ($.Site.Params.brand | humanize | title) }}
   {{ .Scratch.Add "title" " - " }}
   {{ .Scratch.Add "title" .LinkTitle }}
-{{ end }} 
+{{ end }}
 
 {{ if .IsPage }}
   {{ .Scratch.Set "title" ($.Site.Params.brand | humanize | title) }}
   {{ .Scratch.Add "title" " - " }}
   {{ .Scratch.Add "title" .LinkTitle }}
-{{ end }} 
+{{ end }}
 
 {{ $og_image := .Resources.Get .Params.image }}
 {{ if not ( $og_image ) }}
@@ -103,9 +103,9 @@
 
 <!-- Article Specific Tags -->
 <!-- To make sure this renders only in the article page, we check the section -->
-{{ if eq .Section "posts" }}
+{{ if and (eq .Section "posts") (.Page.IsNode) }}
 <!-- Pagination meta tags for list pages only -->
-{{ $paginator := .Paginate (where .Pages "Type" "posts") }} 
+{{ $paginator := .Paginate (where .Pages "Type" "posts") }}
 {{ if $paginator }}
   <link rel="first" href="{{ $paginator.First.URL }}" />
   <link rel="last" href="{{ $paginator.Last.URL }}" />
