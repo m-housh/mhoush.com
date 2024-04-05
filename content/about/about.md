@@ -34,3 +34,7 @@ focus on residential HVAC and Home Performance.
 - [The HVAC Grapevine](https://www.youtube.com/@thehvacgrapevine5225)
 - [HVAC Overtime](https://www.youtube.com/@HVACOvertime)
 
+## Michael's PGP Fingerprint
+
+B86F487BF0A715D016DB140A37F1B52C60D8C24B
+
