@@ -4,7 +4,7 @@ title=$1
 
 if [ -z "$title" ]; then
   echo "No title provided"
-  exit 0
+  exit 1
 fi
 
 # Create the post.
