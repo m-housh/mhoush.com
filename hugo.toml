@@ -1,15 +1,18 @@
 baseURL = "https://mhoush.com"
 languageCode = "en-us"
 theme = "poison"
-paginate = 10
 pluralizelisttitles = false   # removes the automatically appended "s" on sidebar entries
 
 # NOTE: If using Disqus as commenting engine, uncomment and configure this line
 #disqusShortname = "mhoush-com"
-[author]
-    name = "Michael Housh"
+# [author]
+#     name = "Michael Housh"
+
+[pagination]
+  pagerSize = 10
 
 [params]
+    author = "Michael Housh"
     brand = "Michael Housh"                      # name of your site - appears in the sidebar
     brand_image = "/images/avatar.png"    # path to the image shown in the sidebar
     description = "HVAC, Programming, Home Performance, Design" # Used as default meta description if not specified in front matter
