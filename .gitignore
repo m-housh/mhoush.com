@@ -7,6 +7,9 @@
 Output
 public/*
 .hugo_build.lock
+deploy
+node_modules
+env
 
 # Local Netlify folder
 .netlify
