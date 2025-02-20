@@ -19,9 +19,6 @@ extension Item where M == ArticleMetadata {
 
   var imagePath: String {
     let image = metadata.image ?? "\(filenameWithoutExtension).png"
-
-    return SiteMetadata.url
-      .appendingPathComponent("/articles/images/\(image)")
-      .absoluteString
+    return "/articles/images/\(image)"
   }
 }
