@@ -10,6 +10,7 @@ public/*
 deploy
 node_modules
 env
+Package.resolved
 
 # Local Netlify folder
 .netlify
