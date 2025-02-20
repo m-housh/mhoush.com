@@ -1,26 +1,8 @@
 [build]
-publish = "public"
-command = "hugo --gc && npx -y pagefind --site public"
+  base = ""
+  publish = "deploy"
+  command = "swift run --configuration release Mhoush && npm install -g html-minifier && html-minifier --collapse-whitespace --input-dir deploy --file-ext html --output-dir deploy"
 
-[context.production.environment]
-HUGO_VERSION = "0.117.0"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
-
-[context.deploy-preview]
-command = "hugo --gc --buildFuture -b $DEPLOY_PRIME_URL && npx -y pagefind --site public"
-
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.117.0"
-
-[context.branch-deploy]
-command = "hugo --gc -b $DEPLOY_PRIME_URL && npx -y pagefind --site public"
-
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.117.0"
-
-[[redirects]]
-from = "/npmjs/*"
-to = "/npmjs/"
-status = 200
-
+[build.environment]
+  SWIFT_VERSION = "6.0.1"
+  NODE_VERSION = "20"
