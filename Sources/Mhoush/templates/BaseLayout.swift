@@ -78,6 +78,14 @@ private func footer(_ rssLink: String) -> Node {
       " | "
       a(href: "mailto:michael@mhoush.com", rel: "nofollow") { "Email" }
     }
+    p {
+      span {
+        "All articles are licensed under Creative-Commons (CC BY-NC) 4.0"
+      }
+      a(href: "https://creativecommons.org/licenses/by-nc/4.0/") {
+        img(src: "/static/images/by-nc.png", width: "100")
+      }
+    }
     script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js")
     script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/keep-markup/prism-keep-markup.min.js")
     script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js")
