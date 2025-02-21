@@ -95,6 +95,7 @@ struct Run {
       .register(
         metadata: PageMetadata.self,
         readers: [.parsleyMarkdownReader],
+        itemProcessor: removingBreaks,
         itemWriteMode: .keepAsFile, // need to keep 404.md as 404.html, not 404/index.html
         writers: [.itemWriter(swim(renderPage))]
       )

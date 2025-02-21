@@ -10,7 +10,7 @@ func uniqueTagsWithCount(_ articles: [Item<ArticleMetadata>]) -> [(String, Int)]
 
 func renderArticleForGrid(article: Item<ArticleMetadata>) -> Node {
   section {
-    h2(class: "text-2xl font-bold mb-2") {
+    h2(class: "post-title text-2xl font-bold mb-2") {
       a(class: "[&:hover]:border-b border-orange", href: article.url) { article.title }
     }
     div(class: "text-gray gray-links text-sm mb-4") {
@@ -66,7 +66,7 @@ func _renderArticles(
   return baseLayout(canocicalURL: canocicalURL, section: .articles, title: pageTitle, rssLink: rssLink, extraHeader: extraHeader) {
     articles.map { article in
       section(class: "mb-10") {
-        h1(class: "text-2xl font-bold mb-2") {
+        h1(class: "post-title text-2xl font-bold mb-2") {
           a(class: "[&:hover]:border-b border-orange", href: article.url) { article.title }
         }
         renderArticleInfo(article)

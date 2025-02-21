@@ -8,25 +8,62 @@
   src: local("Anonymous Pro Regular"), url(/static/AnonymousPro-Regular.ttf);
 }
 
-/* BODY */
-
-body.home nav {
-  @apply lg:justify-center;
+:root {
+  --accent:#A6E3A1;
+  --background:rgb(34, 33, 41);
+  --color:#fff;
+  --border-color:hsla(0,0%,100%,0.1);
+  --phoneWidth:(max-width:684px);
+  --tabletWidth:(max-width:900px)
+  --orange:#F5A87F;
 }
 
-body.home header img {
-  @apply block lg:hidden;
+/* HEADER */
+.header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-center: space-between;
+}
+.header__logo {
+  display: flex;
+  flex: 1;
+}
+.header__logo:after {
+  content:"";
+  background:repeating-linear-gradient(90deg,#ffa86a,#ffa86a 2px,transparent 0,transparent 10px);
+  background:repeating-linear-gradient(90deg,var(--accent),var(--accent) 2px,transparent 0,transparent 10px);
+  display:block;
+  width:100%;
+  right:10px
+}
+.header__logo a {
+  flex:0 0 auto;
+  max-width:100%;
+  text-decoration:none
 }
 
-body.home .site-footer {
-  @apply hidden;
+.logo {
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  background:#ffa86a;
+  background:var(--accent);
+  color:#000;
+  padding:5px 10px
 }
 
-body.home .images img {
-  @apply inline m-5 h-[28px];
+.header .menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
 }
-
-/* LINKS */
 
 nav a {
   @apply block border-b-2 border-transparent;
@@ -40,33 +77,81 @@ nav a.active {
   @apply border-orange text-white;
 }
 
+a.green:hover {
+  @apply underline;
+}
+
+.site-footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+.site-footer img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 100px;
+}
+
+.post-title {
+  --border:3px dotted var(--accent);
+  position:relative;
+  color:#ffa86a;
+  color:var(--accent);
+  margin:0 0 15px;
+  padding-bottom:15px;
+  border-bottom:var(--border)
+}
+.post-title:after {
+  content:"";
+  position:absolute;
+  bottom:2px;
+  display:block;
+  width:100%;
+  border-bottom:var(--border)
+}
+.post-title a {
+  text-decoration:none
+}
+
+/* BODY */
+
+body.home .site-footer {
+  @apply hidden;
+}
+
 .gray-links a {
   @apply underline text-inherit;
 }
 
 .gray-links a:hover {
-  @apply text-white;
-}
-
-a.orange {
   @apply text-orange;
 }
 
-a.orange:hover {
-  @apply underline;
+/* Typewriter */
+.typewriter h1 {
+  overflow: hidden;
+  border-right: .15em solid #F5A87F;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end;
 }
 
-a[href^="https://github.com"].app {
-  background: transparent url("images/github.svg") no-repeat;
-  background-size: 1em 1em;
-  padding-left: 20px;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
-a[href^="https://itunes.apple.com"].app, a[href^="https://apps.apple.com"].app {
-  background: transparent url("images/apple.svg") no-repeat;
-  background-size: 1em 1em;
-  padding-left: 20px;
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #F5A87F; }
 }
+
 
 /* PROSE */
 
@@ -90,31 +175,6 @@ a[href^="https://itunes.apple.com"].app, a[href^="https://apps.apple.com"].app {
 .fa-regular {
   font-weight: normal;
 }
-
-/* SCREENSHOTS */
-
-.screenshots.break_1 span {
-  @apply flex-1;
-}
-
-.screenshots.break_2 span {
-  @apply flex-[0_0_50%] lg:flex-1;
-}
-
-.screenshots.break_3 span {
-  @apply flex-[0_0_33%] lg:flex-1;
-}
-
-.screenshots img {
-  padding: 3px 3px 0 0;
-  border-radius: 0px;
-  margin: 0;
-}
-
-.screenshots.rounded img {
-  border-radius: 10%/4.7%;
-}
-
 @media (min-width: 860px) {
   .prose pre {
     margin-left: -20px;
