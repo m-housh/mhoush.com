@@ -26,6 +26,7 @@ module.exports = {
       sub: "#252f3f",
       light: "#64748b",
       gray: "#93a3b8",
+      pink: "#EE72F1",
     },
     extend: {
       fontFamily: {
@@ -46,7 +47,7 @@ module.exports = {
             "--tw-prose-quotes": theme("colors.gray"),
             "--tw-prose-quote-borders": theme("colors.gray"),
             a: {
-              color: theme("colors.orange"),
+              color: theme("colors.green"),
               textDecoration: "none",
               fontWeight: "400",
               "&:hover": {

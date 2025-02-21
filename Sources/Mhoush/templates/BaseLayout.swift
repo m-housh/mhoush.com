@@ -21,12 +21,18 @@ func baseLayout(
     html(lang: "en-US") {
       generateHeader(pageTitle, extraHeader)
       body(class: "bg-page text-white pb-5 font-avenir \(section.rawValue)") {
-        header(class: "bg-nav text-gray py-4 text-base/6 lg:fixed w-full lg:h-[62px]") {
-          nav(class: "container flex gap-x-5 lg:gap-x-y items-center") {
-            ul(class: "flex flex-wrap gap-x-2 lg:gap-x-5") {
-              li {
-                a(class: section == .home ? "active" : "", href: "/") { "Home" }
+        header(class: "header") {
+          div(class: "header__inner") {
+            div(class: "header__logo") {
+              a(href: "/") {
+                div(class: "logo") {
+                  "mhoush.com"
+                }
               }
+            }
+          }
+          nav(class: "menu") {
+            ul(class: "flex flex-wrap gap-x-2 lg:gap-x-5") {
               li {
                 a(class: section == .articles ? "active" : "", href: "/articles/") { "Articles" }
               }
@@ -48,7 +54,7 @@ func baseLayout(
 }
 
 private func footer(_ rssLink: String) -> Node {
-  div(class: "site-footer container text-gray gray-links border-t border-light text-center pt-6 mt-8 text-sm") {
+  div(class: "site-footer text-gray gray-links border-t border-light text-center pt-6 mt-8 text-sm") {
     p {
       "Copyright © Michael Housh 2023-\(Date().description.prefix(4))."
     }
@@ -83,7 +89,7 @@ private func footer(_ rssLink: String) -> Node {
         "All articles are licensed under Creative-Commons (CC BY-NC) 4.0"
       }
       a(href: "https://creativecommons.org/licenses/by-nc/4.0/") {
-        img(src: "/static/images/by-nc.png", width: "100")
+        img(class: "justify-center", src: "/static/images/by-nc.png", width: "100")
       }
     }
     script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js")
