@@ -1,6 +1,11 @@
 import Foundation
 
+// NOTE: Most of these are taken from https://github.com/loopwerk/loopwerk.io
+
 extension String {
+
+  /// Used to generate the word count of an article, to be displayed as metadata about
+  /// the article.
   var numberOfWords: Int {
     let characterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
     let components = self.components(separatedBy: characterSet)
@@ -28,6 +33,9 @@ extension String {
     return prefix(length - end.count).split(separator: " ").dropLast().joined(separator: " ") + end
   }
 
+  /// Removes unwanted breaks that are caused by the way markdown files are formatted by
+  /// prettier in my neovim setup.  When not applied then paragraphs get split up improperly
+  /// causing them to display funny on the site.
   var removeBreaks: String {
     replacingOccurrences(of: "<br>", with: "")
       .replacingOccurrences(of: "<br />", with: "")

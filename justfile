@@ -27,6 +27,11 @@ merge-pr *ARGS:
 last-post:
   @echo "$(find content/articles -maxdepth 1 -mindepth 1 -type f -ctime -30 | sort -nr | head -1)"
 
+# Get the last post's base filename.
+[group('blog')]
+last-post-basename:
+  @./scripts/last-post-basename.sh
+
 # Generate a new post with the given file name.
 [group('blog')]
 new-post name:
