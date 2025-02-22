@@ -18,7 +18,7 @@ func generateHeader(
       meta(content: "summary_large_image", name: "twitter:card"),
       meta(content: SiteMetadata.twitterImage, name: "twitter:image"),
       meta(content: SiteMetadata.name, name: "twitter:image:alt"),
-      meta(content: SiteMetadata.url.absoluteString, name: "og:url"),
+      meta(content: SiteMetadata.twitterImage, name: "og:url"),
       meta(content: SiteMetadata.author, name: "og:title"),
       meta(content: SiteMetadata.summary, name: "og:description"),
       meta(content: SiteMetadata.twitterImage, name: "og:image"),
