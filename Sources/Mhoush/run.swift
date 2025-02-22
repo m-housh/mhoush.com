@@ -5,39 +5,6 @@ import PathKit
 import SagaParsleyMarkdownReader
 import SagaSwimRenderer
 
-enum SiteMetadata {
-  #if DEBUG
-    static let url = URL(string: "http://localhost:3000")!
-  #else
-    static let url = URL(string: "https://mhoush.com")!
-  #endif
-  static let name = "mhoush"
-  static let author = "Michael Housh"
-}
-
-struct ArticleMetadata: Metadata {
-  let tags: [String]
-  var summary: String?
-  let `public`: Bool?
-  let image: String?
-}
-
-struct AppMetadata: Metadata {
-  let url: URL?
-  let images: [String]?
-}
-
-struct PageMetadata: Metadata {
-  let section: String?
-}
-
-// An easy way to only get public articles, since ArticleMetadata.public is optional
-extension Item where M == ArticleMetadata {
-  var `public`: Bool {
-    return metadata.public ?? true
-  }
-}
-
 func permalink(item: Item<ArticleMetadata>) {
   // Insert the publication year into the permalink.
   // If the `relativeDestination` was "articles/looking-for-django-cms/index.html", then it becomes "articles/2009/looking-for-django-cms/index.html"

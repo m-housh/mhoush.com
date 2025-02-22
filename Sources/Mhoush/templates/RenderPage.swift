@@ -5,7 +5,12 @@ func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
   let section = Section(rawValue: context.item.metadata.section ?? "")
   assert(section != nil)
 
-  return baseLayout(canocicalURL: context.item.url, section: section!, title: context.item.title) {
+  return baseLayout(
+    canocicalURL: context.item.url,
+    section: section!,
+    title: context.item.title,
+    extraHeader: section == .home ? generateHeader(.home) : Node.fragment([])
+  ) {
     switch section {
     case .home:
       renderHome(body: context.item.body)

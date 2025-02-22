@@ -1,13 +1,14 @@
 import Foundation
 import HTML
 
-enum Section: String {
-  case home
-  case articles
-  case about
-  case notFound
-}
-
+/// The base page layout used to render the different sections of the website.
+///
+/// - Parameters:
+///   - conocicalURL: The url for the page.
+///   - section: The section of the page.
+///   - title: The page title.
+///   - rssLink: A prefix for generating an rss feed for the page (generally only used for articles).
+///   - extraHeader: Any extra items to be placed in the `head` of the html.
 func baseLayout(
   canocicalURL: String,
   section: Section,
@@ -21,27 +22,7 @@ func baseLayout(
     html(lang: "en-US") {
       generateHeader(pageTitle, extraHeader)
       body(class: "bg-page text-white pb-5 font-avenir \(section.rawValue)") {
-        header(class: "header") {
-          div(class: "header__inner") {
-            div(class: "header__logo") {
-              a(href: "/") {
-                div(class: "logo") {
-                  "mhoush.com"
-                }
-              }
-            }
-          }
-          nav(class: "menu") {
-            ul(class: "flex flex-wrap gap-x-2 lg:gap-x-5") {
-              li {
-                a(class: section == .articles ? "active" : "", href: "/articles/") { "Articles" }
-              }
-              li {
-                a(class: section == .about ? "active" : "", href: "/about.html") { "About" }
-              }
-            }
-          }
-        }
+        siteHeader(section)
 
         div(class: "container pt-12 lg:pt-28") {
           children()
@@ -51,6 +32,30 @@ func baseLayout(
       }
     }
   ]
+}
+
+private func siteHeader(_ section: Section) -> Node {
+  header(class: "header") {
+    div(class: "header__inner") {
+      div(class: "header__logo") {
+        a(href: "/") {
+          div(class: "logo") {
+            "mhoush.com"
+          }
+        }
+      }
+    }
+    nav(class: "menu") {
+      ul(class: "flex flex-wrap gap-x-2 lg:gap-x-5") {
+        li {
+          a(class: section == .articles ? "active" : "", href: "/articles/") { "Articles" }
+        }
+        li {
+          a(class: section == .about ? "active" : "", href: "/about.html") { "About" }
+        }
+      }
+    }
+  }
 }
 
 private func footer(_ rssLink: String) -> Node {
