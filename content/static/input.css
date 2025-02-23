@@ -16,6 +16,7 @@
   --phoneWidth:(max-width:684px);
   --tabletWidth:(max-width:900px)
   --orange:#F5A87F;
+  --green:#A6E3A1;
 }
 
 /* HEADER */
@@ -122,14 +123,6 @@ body.home .site-footer {
   @apply hidden;
 }
 
-/* .gray-linksja { */
-/*   @apply underline text-inherit; */
-/* } */
-/**/
-/* .gray-links a:hover { */
-/*   @apply text-orange; */
-/* } */
-
 /* Typewriter */
 .typewriter h1 {
   overflow: hidden;
@@ -178,6 +171,10 @@ body.home .site-footer {
 
 .prose a:hover {
   @apply text-orange;
+}
+
+.text-green {
+  color: var(--green)
 }
 
 .fa-regular {

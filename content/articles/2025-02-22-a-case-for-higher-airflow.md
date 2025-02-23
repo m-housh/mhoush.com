@@ -72,16 +72,16 @@ airflows for the rooms.
 I then ran each room through the above formula to compare the results, which shows the percentages
 of CFM required by the ACH calculation vs. the CFM from the Manual-D design.
 
-| Room           | ACH - Target | CFM - Design | CFM - ACH | Percent (Low)                              | Percentage (High)                       |
-| -------------- | ------------ | ------------ | --------- | ------------------------------------------ | --------------------------------------- |
-| Entry          | 6-7          | 176          | 187       | <span class="text-orange">94.0%</span>     | <span class="text-red-500">70.5%</span> |
-| Master Bedroom | 5-6          | 174          | 270       | <span class="text-red-500">64.5%</span>    | <span class="text-red-500">53.7%</span> |
-| Living Room    | 5-6          | 92           | 217       | <span class="text-red-500">42.4%</span>    | <span class="text-red-500">35.3%</span> |
-| Bedroom-1      | 6-7          | 254          | 306       | <span class="text-orange">83.0%</span>     | <span class="text-red-500">62.2%</span> |
-| Kitchen        | 7-8          | 190          | 457       | <span class="text-red-500">41.6%</span>    | <span class="text-red-500">36.4%</span> |
-| Family Room    | 6-7          | 279          | 271       | <span class="text-green-500">102.9%</span> | <span class="text-red-500">77.2%</span> |
+| Room           | ACH - Target | CFM - Design | CFM - ACH | Percent (Low)                           | Percentage (High)                       |
+| -------------- | ------------ | ------------ | --------- | --------------------------------------- | --------------------------------------- |
+| Entry          | 6-7          | 176          | 187       | <span class="text-orange">94.0%</span>  | <span class="text-red-500">70.5%</span> |
+| Master Bedroom | 5-6          | 174          | 270       | <span class="text-red-500">64.5%</span> | <span class="text-red-500">53.7%</span> |
+| Living Room    | 5-6          | 92           | 217       | <span class="text-red-500">42.4%</span> | <span class="text-red-500">35.3%</span> |
+| Bedroom-1      | 6-7          | 254          | 306       | <span class="text-orange">83.0%</span>  | <span class="text-red-500">62.2%</span> |
+| Kitchen        | 7-8          | 190          | 457       | <span class="text-red-500">41.6%</span> | <span class="text-red-500">36.4%</span> |
+| Family Room    | 6-7          | 279          | 271       | <span class="text-green">102.9%</span>  | <span class="text-red-500">77.2%</span> |
 
-- <span class="text-green-500"><b><u>Green</u></b></span> = Percentage is >= to 100%
+- <span class="text-green"><b><u>Green</u></b></span> = Percentage is >= to 100%
 - <span class="text-orange"><b><u>Orange</u></b></span> = Percentage is >= 80% (probably acceptable)
 - <span class="text-red-500"><b><u>Red</u></b></span> = Percentage is < 80%
 
