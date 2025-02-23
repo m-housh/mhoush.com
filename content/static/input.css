@@ -122,13 +122,13 @@ body.home .site-footer {
   @apply hidden;
 }
 
-.gray-links a {
-  @apply underline text-inherit;
-}
-
-.gray-links a:hover {
-  @apply text-orange;
-}
+/* .gray-linksja { */
+/*   @apply underline text-inherit; */
+/* } */
+/**/
+/* .gray-links a:hover { */
+/*   @apply text-orange; */
+/* } */
 
 /* Typewriter */
 .typewriter h1 {
@@ -173,19 +173,11 @@ body.home .site-footer {
 }
 
 .prose a {
-  @apply border-b-2 border-transparent text-green-200;
+  @apply border-b-2 border-transparent text-green;
 }
 
 .prose a:hover {
-  @apply border-orange;
-}
-
-.text-red {
-  @apply text-red-500;
-}
-
-.text-blue {
-  @apply text-sky-500;
+  @apply text-orange;
 }
 
 .fa-regular {
