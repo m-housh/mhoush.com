@@ -28,6 +28,7 @@ func generateHeader(
   case let .article(article):
     return Node.fragment([
       link(href: "/static/prism.css", rel: "stylesheet"),
+      link(href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"),
       meta(content: article.summary, name: "description"),
       meta(content: "summary_large_image", name: "twitter:card"),
       meta(content: article.imagePath, name: "twitter:image"),

@@ -8,34 +8,6 @@ func uniqueTagsWithCount(_ articles: [Item<ArticleMetadata>]) -> [(String, Int)]
   return tagsWithCounts.sorted { $0.1 > $1.1 }
 }
 
-func renderArticleForGrid(article: Item<ArticleMetadata>) -> Node {
-  section {
-    h2(class: "post-title text-2xl font-bold mb-2") {
-      a(class: "[&:hover]:border-b border-orange", href: article.url) { article.title }
-    }
-    div(class: "text-gray gray-links text-sm mb-4") {
-      span(class: "border-r border-gray pr-2 mr-2") {
-        article.date.formatted("MMMM dd, YYYY")
-      }
-
-      article.metadata.tags.sorted().enumerated().map { index, tag in
-        Node.fragment([
-          %tagPrefix(index: index, totalTags: article.metadata.tags.count),
-          %a(href: "/articles/tag/\(tag.slugified)/") { tag }
-        ])
-      }
-    }
-    p {
-      a(href: article.url) {
-        div {
-          // img(alt: "banner", src: article.imagePath)
-          article.summary
-        }
-      }
-    }
-  }
-}
-
 func renderArticles(context: ItemsRenderingContext<ArticleMetadata>) -> Node {
   let dateFormatter = DateFormatter()
   dateFormatter.dateFormat = "yyyy"
@@ -44,34 +16,16 @@ func renderArticles(context: ItemsRenderingContext<ArticleMetadata>) -> Node {
   let sortedByYearDescending = articlesPerYear.sorted { $0.key > $1.key }
 
   return baseLayout(canocicalURL: "/articles/", section: .articles, title: "Articles", rssLink: "", extraHeader: "") {
+    // TODO: Add list of tags here that can be navigated to.
     sortedByYearDescending.map { year, articles in
       div {
-        h1(class: "text-4xl font-extrabold mb-12") { year }
+        div(class: "border-b border-light flex flex-row gap-4 mb-12") {
+          img(src: "/static/images/calendar.svg", width: "40")
+          h1(class: "text-4xl font-extrabold") { year }
+        }
 
         div(class: "grid gap-10 mb-16") {
           articles.map { renderArticleForGrid(article: $0) }
-        }
-      }
-    }
-  }
-}
-
-func _renderArticles(
-  _ articles: [Item<ArticleMetadata>],
-  canocicalURL: String,
-  title pageTitle: String,
-  rssLink: String = "",
-  extraHeader: NodeConvertible = Node.fragment([])
-) -> Node {
-  return baseLayout(canocicalURL: canocicalURL, section: .articles, title: pageTitle, rssLink: rssLink, extraHeader: extraHeader) {
-    articles.map { article in
-      section(class: "mb-10") {
-        h1(class: "post-title text-2xl font-bold mb-2") {
-          a(class: "[&:hover]:border-b border-orange", href: article.url) { article.title }
-        }
-        renderArticleInfo(article)
-        p(class: "mt-4") {
-          a(href: article.url) { article.summary }
         }
       }
     }
@@ -86,15 +40,55 @@ func renderTag<T>(context: PartitionedRenderingContext<T, ArticleMetadata>) -> N
     type: "application/rss+xml"
   )
 
-  return _renderArticles(
+  return baseRenderArticles(
     context.items,
     canocicalURL: "/articles/tag/\(context.key.slugified)/",
     title: "Articles in \(context.key)",
     rssLink: "tag/\(context.key.slugified)/",
     extraHeader: extraHeader
-  )
+  ) {
+    div(class: "border-b border-light grid lg:grid-cols-2 mb-12") {
+      a(href: "/articles") {
+        div(class: "flex flex-row gap-2") {
+          img(src: "/static/images/tag.svg", width: "40")
+          h1(class: "text-4xl font-extrabold") { "\(context.key)" }
+          h1(class: "[&:hover]:border-b border-green text-2xl font-extrabold text-orange px-4") { "«" }
+        }
+      }
+    }
+  }
 }
 
 func renderYear<T>(context: PartitionedRenderingContext<T, ArticleMetadata>) -> Node {
-  _renderArticles(context.items, canocicalURL: "/articles/\(context.key)/", title: "Articles in \(context.key)")
+  baseRenderArticles(context.items, canocicalURL: "/articles/\(context.key)/", title: "Articles in \(context.key)")
+}
+
+private func baseRenderArticles(
+  _ articles: [Item<ArticleMetadata>],
+  canocicalURL: String,
+  title pageTitle: String,
+  rssLink: String = "",
+  extraHeader: NodeConvertible = Node.fragment([]),
+  @NodeBuilder label: () -> Node = { Node.fragment([]) }
+) -> Node {
+  return baseLayout(
+    canocicalURL: canocicalURL,
+    section: .articles,
+    title: pageTitle,
+    rssLink: rssLink,
+    extraHeader: extraHeader
+  ) {
+    label()
+    articles.map { article in
+      section(class: "mb-10") {
+        h1(class: "post-title text-2xl font-bold mb-2") {
+          a(class: "[&:hover]:border-b border-orange", href: article.url) { article.title }
+        }
+        renderArticleInfo(article)
+        p(class: "mt-4") {
+          a(href: article.url) { article.summary }
+        }
+      }
+    }
+  }
 }

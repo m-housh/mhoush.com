@@ -37,6 +37,10 @@ struct ArticleMetadata: Metadata {
   /// filename with a `png` extension and searches in the content/articles/images
   /// directory.  So it's often not required to be supplied.
   let image: String?
+
+  /// Specify the primary tag for suggesting related articles, if not supplied,
+  /// then most recent articles are suggested.
+  let primaryTag: String?
 }
 
 /// Represents valid metadata for the files that are not an `article`.

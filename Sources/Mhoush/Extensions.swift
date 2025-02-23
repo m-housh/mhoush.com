@@ -35,4 +35,12 @@ extension Item where M == ArticleMetadata {
       return metadata.public ?? true
     #endif
   }
+
+  func getPrimaryTag() -> String? {
+    guard let primaryTag = metadata.primaryTag else {
+      guard metadata.tags.count == 1 else { return nil }
+      return metadata.tags[0]
+    }
+    return primaryTag
+  }
 }

@@ -57,9 +57,6 @@ module.exports = {
               color: theme("colors.green"),
               textDecoration: "none",
               fontWeight: "400",
-              "&:hover": {
-                textDecoration: "underline",
-              },
             },
             strong: {
               color: theme("colors.white"),
