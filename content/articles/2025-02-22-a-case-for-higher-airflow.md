@@ -2,6 +2,7 @@
 tags: HVAC, design, formulas
 summary: Why should design for higher than nominal airflow.
 public: true
+primaryTag: design
 ---
 
 # A Case For Higher Airflow

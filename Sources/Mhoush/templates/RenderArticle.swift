@@ -24,7 +24,7 @@ func renderArticleInfo(_ article: Item<ArticleMetadata>) -> Node {
     article.metadata.tags.sorted().enumerated().map { index, tag in
       Node.fragment([
         %tagPrefix(index: index, totalTags: article.metadata.tags.count),
-        %a(href: "/articles/tag/\(tag.slugified)/") { tag }
+        %a(class: "text-orange [&:hover]:border-b border-green", href: "/articles/tag/\(tag.slugified)/") { tag }
       ])
     }
   }
@@ -36,9 +36,46 @@ func ogURL(_ article: Item<ArticleMetadata>) -> String {
     .absoluteString
 }
 
-func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
+private func parseOtherArticles(_ context: ItemRenderingContext<ArticleMetadata>) -> OtherArticles {
   let allArticles = context.allItems.compactMap { $0 as? Item<ArticleMetadata> }
-  let otherArticles = allArticles.filter { $0.url != context.item.url }.prefix(2)
+  let otherArticles = allArticles
+    .filter { $0.url != context.item.url }
+
+  guard let primaryTag = context.item.getPrimaryTag() else {
+    return .all(otherArticles)
+  }
+
+  return .related(
+    otherArticles.sorted { lhs, rhs in
+      switch (lhs.metadata.tags.contains(primaryTag), rhs.metadata.tags.contains(primaryTag)) {
+      case (true, false): return true
+      default: return false
+      }
+    }
+  )
+}
+
+private enum OtherArticles {
+  case all([Item<ArticleMetadata>])
+  case related([Item<ArticleMetadata>])
+
+  var items: [Item<ArticleMetadata>] {
+    switch self {
+    case let .all(items): return items
+    case let .related(items): return items
+    }
+  }
+
+  var title: String {
+    switch self {
+    case .all: return "Recent Articles"
+    case .related: return "Related Articles"
+    }
+  }
+}
+
+func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
+  let otherArticles = parseOtherArticles(context)
 
   return baseLayout(
     canocicalURL: context.item.url,
@@ -55,8 +92,22 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
       Node.raw(context.item.body)
     }
 
+    comments
+
+    div(class: "mt-16") {
+      h2(class: "text-4xl font-extrabold mb-8") { otherArticles.title }
+
+      div(class: "grid lg:grid-cols-2 gap-10") {
+        otherArticles.items.prefix(2).map { renderArticleForGrid(article: $0) }
+      }
+
+      p(class: "prose mt-8") {
+        a(href: "/articles/") { "> All Articles" }
+      }
+    }
+
     div(class: "border-t border-light mt-8 pt-8") {
-      h2(class: "text-4xl font-extrabold mb-8") { "Written by" }
+      h2(class: "text-4xl font-extrabold mb-8") { "Author" }
       div(class: "flex flex-col lg:flex-row gap-8") {
         div(class: "flex-[0_0_120px]") {
           img(class: "w-[120px] h-[120px] rounded-full", src: "/static/images/avatar.png")
@@ -68,23 +119,23 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
         }
       }
     }
+  }
+}
 
-    div(class: "mt-16") {
-      h2(class: "text-4xl font-extrabold mb-8") { "More articles" }
-
-      div(class: "grid lg:grid-cols-2 gap-10") {
-        otherArticles.map { renderArticleForGrid(article: $0) }
-      }
-
-      p(class: "prose mt-8") {
-        a(href: "/articles/") { "› See all articles" }
+func renderArticleForGrid(article: Item<ArticleMetadata>) -> Node {
+  section {
+    h2(class: "post-title text-2xl font-bold mb-2") {
+      a(class: "[&:hover]:border-b border-orange", href: article.url) { article.title }
+    }
+    renderArticleInfo(article)
+    p {
+      a(href: article.url) {
+        div {
+          // img(alt: "banner", src: article.imagePath)
+          article.summary
+        }
       }
     }
-
-    comments
-    // div(class: "pt-8") {
-    //   comments(context.item)
-    // }
   }
 }
 

@@ -166,11 +166,14 @@ body.home .site-footer {
 }
 
 .prose a {
+  text-decoration:none
+}
+.prose a {
   @apply border-b-2 border-transparent text-green;
 }
 
 .prose a:hover {
-  @apply text-orange;
+  @apply border-b border-orange;
 }
 
 .text-green {
