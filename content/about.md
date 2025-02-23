@@ -30,16 +30,15 @@ Michael is a proud contributor to many online groups / podcasts:
 
 ## Website Credits
 
-The theme for this website was inspired by the Hugo
-[terminal theme](https://github.com/panr/hugo-theme-terminal).
+The theme for this website was inspired by:
 
-The author information and related article section is inspired (primarily duplicated) from
-[loopwerk.io](https://loopwerk.io).
+- [loopwerk.io](https://loopwerk.io)
+- [terminal theme](https://github.com/panr/hugo-theme-terminal)
 
-This site uses [Saga](https://github.com/loopwerk/Saga.git) to generate the static website, which is
-deployed on [Netlify](https://netlify.com).
+This site is built using [Saga](https://github.com/loopwerk/Saga.git) to generate the static
+website.
 
-All content is written by me (Michael Housh), unless specified that it is from a guest contributor,
+All content is written by Michael Housh, unless specified that it is from a guest contributor,
 without the use of AI, and licensed under Creative Commons, see
 [Content-License](https://github.com/m-housh/mhoush.com/blob/main/LICENSE-CONTENT).
 
