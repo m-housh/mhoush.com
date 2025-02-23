@@ -44,10 +44,12 @@ func renderTag<T>(context: PartitionedRenderingContext<T, ArticleMetadata>) -> N
     rssLink: "tag/\(context.key.slugified)/",
     extraHeader: extraHeader
   ) {
-    div(class: "mb-12") {
-      h1(class: "text-4xl font-extrabold") {
-        a(class: "[&:hover]:border-b border-orange", href: "/articles") {
-          "\(context.key)"
+    div(class: "grid lg:grid-cols-2 mb-12") {
+      a(href: "/articles") {
+        div(class: "flex flex-row gap-2") {
+          h1(class: "[&:hover]:border-b border-green text-2xl font-extrabold text-orange px-4") { "«" }
+          img(src: "/static/images/tag.svg", width: "40")
+          h1(class: "text-4xl font-extrabold") { "\(context.key)" }
         }
       }
     }
