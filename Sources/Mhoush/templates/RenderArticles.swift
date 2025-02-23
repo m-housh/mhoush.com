@@ -19,7 +19,10 @@ func renderArticles(context: ItemsRenderingContext<ArticleMetadata>) -> Node {
     // TODO: Add list of tags here that can be navigated to.
     sortedByYearDescending.map { year, articles in
       div {
-        h1(class: "text-4xl font-extrabold mb-12") { year }
+        div(class: "border-b border-light flex flex-row gap-4 mb-12") {
+          img(src: "/static/images/calendar.svg", width: "40")
+          h1(class: "text-4xl font-extrabold") { year }
+        }
 
         div(class: "grid gap-10 mb-16") {
           articles.map { renderArticleForGrid(article: $0) }
@@ -44,12 +47,12 @@ func renderTag<T>(context: PartitionedRenderingContext<T, ArticleMetadata>) -> N
     rssLink: "tag/\(context.key.slugified)/",
     extraHeader: extraHeader
   ) {
-    div(class: "grid lg:grid-cols-2 mb-12") {
+    div(class: "border-b border-light grid lg:grid-cols-2 mb-12") {
       a(href: "/articles") {
         div(class: "flex flex-row gap-2") {
-          h1(class: "[&:hover]:border-b border-green text-2xl font-extrabold text-orange px-4") { "«" }
           img(src: "/static/images/tag.svg", width: "40")
           h1(class: "text-4xl font-extrabold") { "\(context.key)" }
+          h1(class: "[&:hover]:border-b border-green text-2xl font-extrabold text-orange px-4") { "«" }
         }
       }
     }
