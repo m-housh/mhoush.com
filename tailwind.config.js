@@ -35,7 +35,7 @@ module.exports = {
       colors: {
         sky: colors.sky,
         blue: colors.blue,
-        green: colors.green
+        green: "#A6E3A1"
       },
       fontFamily: {
         avenir: ["Avenir", ...defaultTheme.fontFamily.sans],

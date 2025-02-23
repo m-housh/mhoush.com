@@ -172,6 +172,14 @@ body.home .site-footer {
   margin-right: 140px;
 }
 
+.prose a {
+  @apply border-b-2 border-transparent text-green-200;
+}
+
+.prose a:hover {
+  @apply border-orange;
+}
+
 .text-red {
   @apply text-red-500;
 }
@@ -183,6 +191,7 @@ body.home .site-footer {
 .fa-regular {
   font-weight: normal;
 }
+
 @media (min-width: 860px) {
   .prose pre {
     margin-left: -20px;
