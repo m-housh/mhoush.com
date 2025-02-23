@@ -172,6 +172,14 @@ body.home .site-footer {
   margin-right: 140px;
 }
 
+.text-red {
+  @apply text-red-500;
+}
+
+.text-blue {
+  @apply text-sky-500;
+}
+
 .fa-regular {
   font-weight: normal;
 }

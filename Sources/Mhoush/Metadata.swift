@@ -10,14 +10,13 @@ enum SiteMetadata {
   #endif
   static let name = "mhoush"
   static let author = "Michael Housh"
-
   /// Summary used for metadata / twitter card for home page,
   /// also displayed at bottom of articles.
   static let summary = """
   HVAC business owner with over 27 years of experience. Writes articles about HVAC,
   Programming, Home-Performance, and Building Science
   """
-
+  /// The default twitter image when linking to home page.
   static let twitterImage = "/static/images/home-twitter-image.png"
 }
 

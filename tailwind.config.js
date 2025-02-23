@@ -1,9 +1,10 @@
 import typography from "@tailwindcss/typography";
 import defaultTheme from "tailwindcss/defaultTheme";
+const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./Sources/Mhoush/templates/*.swift"],
+  content: ["./Sources/Mhoush/templates/*.swift", "./content/articles/*.md"],
   theme: {
     container: {
       center: true,
@@ -20,6 +21,8 @@ module.exports = {
       transparent: "transparent",
       white: "#f1f5f9",
       orange: "#F5A87F",
+      red: colors.red,
+      blue: "#B4BEFE",
       green: "#A6E3A1",
       page: "#1E1E2E",
       nav: "#0e1112",
@@ -29,6 +32,11 @@ module.exports = {
       pink: "#EE72F1",
     },
     extend: {
+      colors: {
+        sky: colors.sky,
+        blue: colors.blue,
+        green: colors.green
+      },
       fontFamily: {
         avenir: ["Avenir", ...defaultTheme.fontFamily.sans],
         anonymous: ["Anonymous Pro", ...defaultTheme.fontFamily.mono],

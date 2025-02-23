@@ -29,6 +29,10 @@ extension Item where M == ArticleMetadata {
 
   /// An easy way to only get public articles, since ArticleMetadata.public is optional
   var `public`: Bool {
-    return metadata.public ?? true
+    #if DEBUG
+      return true
+    #else
+      return metadata.public ?? true
+    #endif
   }
 }
