@@ -82,6 +82,9 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
     }
 
     comments
+    // div(class: "pt-8") {
+    //   comments(context.item)
+    // }
   }
 }
 
@@ -107,3 +110,29 @@ private var comments: Node {
     """)
   }
 }
+
+// private func comments(_ article: Item<ArticleMetadata>) -> Node {
+//   Node.raw("""
+//   <div id="cusdis_thread"
+//   data-host="https://cusdis.com"
+//   data-app-id="d253a590-34f9-4363-b2d9-36ed8b7a11fa"
+//   data-page-id="\(article.url.slugified)"
+//   data-page-url="\(article.url)"
+//   data-page-title="\(article.title)"
+//   data-theme=dark
+//   ></div>
+//   <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+//   <script>
+//   window.addEventListener('load', function () {
+//       let iframe = document.querySelector("#cusdis_thread iframe");
+//       if (iframe) {
+//           let observer = new MutationObserver(() => {
+//               let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+//               iframe.style.height = scrollHeight + "px";
+//           });
+//           observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+//       }
+//   });
+//   </script>
+//   """)
+// }

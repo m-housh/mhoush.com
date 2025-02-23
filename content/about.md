@@ -28,6 +28,23 @@ Michael is a proud contributor to many online groups / podcasts:
     The HVAC Grapevine
     HVAC Overtime
 
+## Website Credits
+
+The theme for this website was inspired by the Hugo
+[terminal theme](https://github.com/panr/hugo-theme-terminal).
+
+The author information and related article section is inspired (primarily duplicated) from
+[loopwerk.io](https://loopwerk.io).
+
+This site uses [Saga](https://github.com/loopwerk/Saga.git) to generate the static website, which is
+deployed on [Netlify](https://netlify.com).
+
+All content is written by me (Michael Housh), unless specified that it is from a guest contributor,
+without the use of AI, and licensed under Creative Commons, see
+[Content-License](https://github.com/m-housh/mhoush.com/blob/main/LICENSE-CONTENT).
+
+## PGP
+
 Michael’s PGP Fingerprint
 
 B86F487BF0A715D016DB140A37F1B52C60D8C24B

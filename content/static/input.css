@@ -122,13 +122,13 @@ body.home .site-footer {
   @apply hidden;
 }
 
-.gray-links a {
-  @apply underline text-inherit;
-}
-
-.gray-links a:hover {
-  @apply text-orange;
-}
+/* .gray-linksja { */
+/*   @apply underline text-inherit; */
+/* } */
+/**/
+/* .gray-links a:hover { */
+/*   @apply text-orange; */
+/* } */
 
 /* Typewriter */
 .typewriter h1 {
@@ -172,9 +172,18 @@ body.home .site-footer {
   margin-right: 140px;
 }
 
+.prose a {
+  @apply border-b-2 border-transparent text-green;
+}
+
+.prose a:hover {
+  @apply text-orange;
+}
+
 .fa-regular {
   font-weight: normal;
 }
+
 @media (min-width: 860px) {
   .prose pre {
     margin-left: -20px;
