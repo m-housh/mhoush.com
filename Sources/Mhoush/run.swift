@@ -66,7 +66,6 @@ struct Run {
         itemWriteMode: .keepAsFile, // need to keep 404.md as 404.html, not 404/index.html
         writers: [.itemWriter(swim(renderPage))]
       )
-
       // Run the steps we registered above
       .run()
       // All the remaining files that were not parsed to markdown, so for example images, raw html files and css,

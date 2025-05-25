@@ -85,6 +85,8 @@ private func footer(_ rssLink: String) -> Node {
         target: "_blank"
       ) { "Youtube" }
       " | "
+      a(href: "https://mastodon.social/@mhoush", rel: "me") { "Mastodon" }
+      " | "
       a(href: "https://www.facebook.com/michael.housh", rel: "nofollow", target: "_blank") { "Facebook" }
       " | "
       a(href: "mailto:michael@mhoush.com", rel: "nofollow") { "Email" }
@@ -116,6 +118,7 @@ private func generateHeader(_ pageTitle: String, _ extraHeader: NodeConvertible)
     meta(content: "320", name: "MobileOptimized")
     meta(content: "Mhoush", name: "og:site_name")
     meta(content: "hvac, developer, swift, home-performance, design", name: "keywords")
+    meta(content: "@mhoush@mastodon.social", name: "fediverse:creator")
     title { SiteMetadata.name + ": \(pageTitle)" }
     link(href: "/static/favicon.ico", rel: "shortcut icon")
     link(href: "/static/output.css", rel: "stylesheet")
