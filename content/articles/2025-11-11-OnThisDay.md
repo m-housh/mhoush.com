@@ -56,19 +56,19 @@ to pine over you, but we are!  Everyday we miss you!  Everyday we love you! Ever
 
 I miss you! I love you!
 
-> On this day in 1980
-> A breath of joy
-> A soul so sweet
-> The fight of a lifetime had begun
-> The determination of champion
-> A woman empowered
->
-> On this day in 1980
-> My soulmate was born
-> Never to be forgotten
-> Always cherished
->
-> On this day in 2025
-> My heart weeps
+>     On this day in 1980  
+>     A breath of joy  
+>     A soul so sweet  
+>     The fight of a lifetime had begun  
+>     The determination of champion  
+>     A woman empowered  
+>      
+>     On this day in 1980  
+>     My soulmate was born  
+>     Never to be forgotten  
+>     Always cherished  
+>    
+>     On this day in 2025  
+>     My heart weeps  
 > 
 
