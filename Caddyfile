@@ -1,0 +1,6 @@
+:80 {
+	route /* {
+    root * /app
+    file_server
+	}
+}
