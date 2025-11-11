@@ -1,6 +1,8 @@
 articles := "content/articles"
 lastpost := `find content/articles -maxdepth 1 -mindepth 1 -type f | sort -nr | head -1`
 shortdate := `date -u '+%Y-%m-%d'`
+docker_image := "mhoush.com"
+docker_tag := "latest"
 
 [private]
 default:
@@ -15,6 +17,16 @@ run:
 [group('dev')]
 run-css:
   @pnpm run css-watch
+
+# Build docker image.
+[group('dev')]
+build-docker:
+  @podman build -t {{docker_image}}:{{docker_tag}} -f docker/Dockerfile .
+
+# Run docker image.
+[group('dev')]
+run-docker:
+  @podman run --rm -it -p 8080:80 {{docker_image}}:{{docker_tag}}
 
 alias pr := generate-pr
 
