@@ -16,6 +16,9 @@ RUN --mount=type=cache,target=/build/.build swift package resolve
 # Copy entire repo into container
 COPY . .
 
+# Remove all the backtrace memory warnings.
+ENV SWIFT_BACKTRACE=enable=no
+
 # Build the static site.
 RUN --mount=type=cache,target=/build/.build swift run
 
