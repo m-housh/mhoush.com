@@ -38,7 +38,7 @@ func generateHeader(
       meta(content: ogURL(article), name: "og:url"),
       meta(content: article.title, name: "og:title"),
       meta(content: article.summary, name: "og:description"),
-      meta(content: ogURL(article), name: "og:image"),
+      meta(content: article.imagePath, name: "og:image"),
       meta(content: "1014", name: "og:image:width"),
       meta(content: "530", name: "og:image:height"),
       script(crossorigin: "anonymous", src: "https://kit.fontawesome.com/f209982030.js"),

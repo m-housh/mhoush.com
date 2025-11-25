@@ -28,7 +28,7 @@ extension Item where M == ArticleMetadata {
     if image.hasPrefix("http") {
       return image
     }
-    return "/articles/images/\(image)"
+    return "\(SiteMetadata.url)/articles/images/\(image)"
   }
 
   /// An easy way to only get public articles, since ArticleMetadata.public is optional
