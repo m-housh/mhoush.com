@@ -59,3 +59,7 @@ new-post name:
 [group('blog')]
 open-canva:
   open https://www.canva.com/folder/FAFu50aO6nY
+
+[group('dev')]
+open-netlify:
+	@brave "https://app.netlify.com/projects/extraordinary-kitten-2506eb/deploys"
