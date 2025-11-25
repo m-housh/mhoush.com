@@ -4,7 +4,7 @@ import Saga
 /// Represents constants about the site.
 enum SiteMetadata {
   #if DEBUG
-    static let url = URL(string: "http://localhost:3000")!
+    static let url = URL(string: "http://localhost:8080")!
   #else
     static let url = URL(string: "https://mhoush.com")!
   #endif
@@ -13,9 +13,9 @@ enum SiteMetadata {
   /// Summary used for metadata / twitter card for home page,
   /// also displayed at bottom of articles.
   static let summary = """
-  HVAC business owner with over 27 years of experience. Writes articles about HVAC,
-  Programming, Home-Performance, and Building Science
-  """
+    HVAC business owner with over 27 years of experience. Writes articles about HVAC,
+    Programming, Home-Performance, and Building Science
+    """
   /// The default twitter image when linking to home page.
   static let twitterImage = "/static/images/home-twitter-image.png"
 }
