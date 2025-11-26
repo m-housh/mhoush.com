@@ -29,6 +29,14 @@ func baseLayout(
         }
 
         footer(rssLink)
+        // NOTE: These need to stay at / near bottom of the page, so that icons are generated properly.
+        script(src: "https://unpkg.com/lucide@latest")
+        Node.raw(
+          """
+          <script>
+            lucide.createIcons();
+          </script>
+          """)
       }
     },
   ]

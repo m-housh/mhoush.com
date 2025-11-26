@@ -50,6 +50,8 @@ COPY --from=css /build/content/static/output.css ./static/output.css
 #COPY --from=css /build/deploy/pagefind ./pagefind
 COPY Caddyfile /etc/caddy/Caddyfile
 
+VOLUME /app
+
 RUN /usr/bin/caddy fmt --overwrite /etc/caddy/Caddyfile
 
 EXPOSE 80

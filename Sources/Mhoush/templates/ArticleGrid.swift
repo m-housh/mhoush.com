@@ -83,7 +83,7 @@ struct ArticleGrid: NodeConvertible {
         }
 
         // Articles
-        div(class: "col-span-2") {
+        div(class: "col-span-3 lg:col-span-2 max-w-[80rem]") {
           articles.map { key, articles in
             section {
               header(key)

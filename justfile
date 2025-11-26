@@ -26,7 +26,7 @@ build-docker:
 # Run docker image.
 [group('dev')]
 run-docker:
-  @podman run --rm -it -p 8080:80 {{docker_image}}:{{docker_tag}}
+  @podman run --rm -it -p 8080:80 -v ./content/static:/app/static {{docker_image}}:{{docker_tag}}
 
 alias pr := generate-pr
 

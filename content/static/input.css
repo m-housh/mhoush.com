@@ -128,6 +128,7 @@ body.home .site-footer {
 }
 
 body {
+	@apply text-base;
 	background: var(--background);
 	color: var(--color);
 }
@@ -154,12 +155,20 @@ body {
   50% { border-color: #F5A87F; }
 }
 
+h2 {
+	@apply text-2xl font-bold my-8;
+}
+
+h1 {
+	@apply text-6xl font-bold my-6;
+}
+
 
 /* PROSE */
 
-/* .prose { */
-/*   @apply prose-code:before:hidden prose-code:after:hidden; */
-/* } */
+.prose {
+	@apply mx-[5rem] max-w-[90vw];
+}
 
 .prose code {
   @apply font-normal text-base;
@@ -167,6 +176,18 @@ body {
 
 .prose pre {
   @apply shadow-lg;
+	padding: 1em;
+	margin: 0.5em 0;
+	background: #242D3D;
+	overflow: auto;
+}
+
+.prose p {
+	@apply mb-8;
+}
+
+.prose img {
+	@apply my-10;
 }
 
 /* .prose hr { */
