@@ -69,7 +69,9 @@ struct ArticleGrid: NodeConvertible {
     ) {
       div(class: "grid grid-cols-4") {
         // Sidebar
-        div(class: "overflow-auto border-r border-slate-200") {
+        div(
+          class: "overflow-auto flex w-full max-w-[20rem] flex-col border-r border-slate-200"
+        ) {
           section(class: "pt-2") {
             div(class: "flex ps-2 pt-2") {
               span(class: "mt-2 ps-2 font-extrabold text-slate-400") { "TAGS" }
@@ -81,7 +83,7 @@ struct ArticleGrid: NodeConvertible {
         }
 
         // Articles
-        div(class: "col-span-3") {
+        div(class: "col-span-2") {
           articles.map { key, articles in
             section {
               header(key)

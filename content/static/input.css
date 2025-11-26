@@ -160,10 +160,10 @@ body.home .site-footer {
   @apply shadow-lg shadow-nav;
 }
 
-.prose hr {
-  margin-left: 140px;
-  margin-right: 140px;
-}
+/* .prose hr { */
+/*   margin-left: 140px; */
+/*   margin-right: 140px; */
+/* } */
 
 .prose a {
   text-decoration:none
