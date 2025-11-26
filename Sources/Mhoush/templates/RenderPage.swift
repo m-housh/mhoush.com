@@ -39,7 +39,7 @@ func renderHome(body: String) -> Node {
 }
 
 func renderNonHome(body: String) -> Node {
-  div(class: "w-full mx-20 max-w-[90vw]") {
+  div(class: "mx-10 lg:mx-20 lg:max-w-[90vw]") {
     article {
       div(class: "prose") {
         Node.raw(body)

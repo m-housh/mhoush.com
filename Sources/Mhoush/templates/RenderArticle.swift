@@ -112,7 +112,7 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
         div(class: "-mt-6") {
           renderArticleInfo(context.item)
         }
-        img(alt: "banner", src: context.item.imagePath)
+        img(alt: "banner", class: "mx-auto", src: context.item.imagePath)
         Node.raw(context.item.body)
       }
 

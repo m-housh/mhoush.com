@@ -23,10 +23,30 @@ run-css:
 build-docker:
   @podman build -t {{docker_image}}:{{docker_tag}} -f docker/Dockerfile .
 
+# Build docker swift builder image.
+[group('dev')]
+build-swift-builder:
+	@podman build -t {{docker_image}}:swift -f docker/Dockerfile.swift .
+
+# Build docker caddy image.
+[group('dev')]
+build-caddy:
+	@podman build -t {{docker_image}}:caddy -f docker/Dockerfile.caddy .
+
+# Build swift resources, using docker swift builder image.
+[group('dev')]
+build-swift:
+	@podman run --rm -it -v .:/build {{docker_image}}:swift
+
 # Run docker image.
 [group('dev')]
 run-docker:
   @podman run --rm -it -p 8080:80 -v ./content/static:/app/static {{docker_image}}:{{docker_tag}}
+
+# Run caddy server with volumes mounted for local development.
+[group('dev')]
+run-dev: build-swift
+	@podman run --rm -it -p 8080:80 -v ./deploy:/app {{docker_image}}:caddy
 
 alias pr := generate-pr
 

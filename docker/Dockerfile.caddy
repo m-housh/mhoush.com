@@ -1,0 +1,17 @@
+# ==================================================
+# Run Image
+# ==================================================
+FROM docker.io/caddy:latest
+
+WORKDIR /app
+
+COPY Caddyfile /etc/caddy/Caddyfile
+
+VOLUME /app
+
+RUN /usr/bin/caddy fmt --overwrite /etc/caddy/Caddyfile
+
+EXPOSE 80
+
+CMD ["/usr/bin/caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+

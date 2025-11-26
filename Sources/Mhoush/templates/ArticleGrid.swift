@@ -67,10 +67,13 @@ struct ArticleGrid: NodeConvertible {
       rssLink: rssLink,
       extraHeader: extraHeader
     ) {
-      div(class: "grid grid-cols-4") {
+      div(class: "h-screen flex overflow-hidden") {
+
         // Sidebar
         div(
-          class: "overflow-auto flex w-full max-w-[20rem] flex-col border-r border-slate-200"
+          class:
+            "absolute bg-gray-800 w-56 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300",
+          id: "sidebar"
         ) {
           section(class: "pt-2") {
             div(class: "flex ps-2 pt-2") {
@@ -82,8 +85,13 @@ struct ArticleGrid: NodeConvertible {
           }
         }
 
+        // TODO: Needs added to navbar.
+        button(class: "text-gray-500 hover:text-gray-600", id: "open-sidebar") {
+          span { "Sidebar-Toggle" }
+        }
+
         // Articles
-        div(class: "col-span-3 lg:col-span-2 max-w-[80rem]") {
+        div(class: "lg:max-w-[80rem]") {
           articles.map { key, articles in
             section {
               header(key)
@@ -93,6 +101,27 @@ struct ArticleGrid: NodeConvertible {
             }
           }
         }
+
+        Node.raw(
+          """
+          <script>
+              const sidebar = document.getElementById('sidebar');
+          const openSidebarButton = document.getElementById('open-sidebar');
+
+          openSidebarButton.addEventListener('click', (e) => {
+              e.stopPropagation();
+              sidebar.classList.toggle('-translate-x-full');
+          });
+
+          // Close the sidebar when clicking outside of it
+          document.addEventListener('click', (e) => {
+              if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
+                  sidebar.classList.add('-translate-x-full');
+              }
+          });
+          </script>
+
+          """)
       }
     }
   }

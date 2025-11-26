@@ -167,7 +167,7 @@ h1 {
 /* PROSE */
 
 .prose {
-	@apply mx-[5rem] max-w-[90vw];
+	@apply lg:mx-[5rem] lg:max-w-[90vw];
 }
 
 .prose code {
@@ -189,11 +189,6 @@ h1 {
 .prose img {
 	@apply my-10;
 }
-
-/* .prose hr { */
-/*   margin-left: 140px; */
-/*   margin-right: 140px; */
-/* } */
 
 .prose a {
   text-decoration:none

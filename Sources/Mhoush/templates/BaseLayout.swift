@@ -24,7 +24,8 @@ func baseLayout(
       body(class: "bg-page text-white pb-5 font-avenir \(section.rawValue)") {
         siteHeader(section)
 
-        div(class: "pt-12 lg:pt-28") {
+        // div(class: "pt-12 lg:pt-28") {
+        div(class: "content") {
           children()
         }
 
@@ -37,6 +38,27 @@ func baseLayout(
             lucide.createIcons();
           </script>
           """)
+
+        Node.raw(
+          """
+          <script>
+            const sidebar = document.getElementById('sidebar');
+            const openSidebarButton = document.getElementById('open-sidebar');
+
+            openSidebarButton.addEventListener('click', (e) => {
+              e.stopPropagation();
+              sidebar.classList.toggle('-translate-x-full');
+            });
+
+            // Close the sidebar when clicking outside of it
+            document.addEventListener('click', (e) => {
+              if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
+                  sidebar.classList.add('-translate-x-full');
+              }
+            });
+          </script>
+          """
+        )
       }
     },
   ]
