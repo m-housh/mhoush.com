@@ -41,7 +41,7 @@ func renderTag<T>(context: PartitionedRenderingContext<T, ArticleMetadata>) -> N
     rssLink: "tag/\(context.key.slugified)/",
     extraHeader: extraHeader
   ) { tag in
-    div(class: "border-b border-light grid lg:grid-cols-2 mb-12") {
+    div(class: "border-b border-light grid lg:grid-cols-2 mb-12 text-center") {
       a(href: "/articles") {
         div(class: "flex flex-row gap-2") {
           img(src: "/static/images/tag.svg", width: "40")
@@ -61,11 +61,11 @@ func renderYear<T>(context: PartitionedRenderingContext<T, ArticleMetadata>) -> 
     canocicalURL: "/articles/\(context.key)/",
     title: "Articles in \(context.key)"
   ) { year in
-    div(class: "pt-6 w-full") {
+    div(class: "py-6 w-full text-center") {
       a(href: "/articles/") {
         div(class: "px-6 flex flex-row gap-4") {
           img(src: "/static/images/calendar.svg", width: "40")
-          h1(class: "text-4xl font-extrabold pt-3") { year }
+          h1(class: "text-4xl font-extrabold") { year }
           h1(class: "[&:hover]:border-b border-green text-2xl font-extrabold text-orange px-4") {
             "«"
           }
@@ -79,7 +79,7 @@ private func yearHeader(_ year: String) -> Node {
   div(class: "pt-6 w-full") {
     div(class: "px-6 flex flex-row gap-4") {
       img(src: "/static/images/calendar.svg", width: "40")
-      h1(class: "text-4xl font-extrabold pt-3") { year }
+      h1(class: "text-4xl font-extrabold") { year }
     }
   }
 }

@@ -1,7 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 @import url('https://fonts.cdnfonts.com/css/avenir');
+@import "tailwindcss";
 
 @font-face {
   font-family: "Anonymous Pro";
@@ -71,11 +72,11 @@ nav a {
 }
 
 nav a:hover {
-  @apply border-orange;
+  @apply border-orange-400;
 }
 
 nav a.active {
-  @apply border-orange text-white;
+  @apply border-orange-400 text-white;
 }
 
 a.green:hover {
@@ -116,11 +117,19 @@ a.green:hover {
 .post-title a {
   text-decoration:none
 }
+.text-orange {
+	@apply text-orange-400;
+}
 
 /* BODY */
 
 body.home .site-footer {
   @apply hidden;
+}
+
+body {
+	background: var(--background);
+	color: var(--color);
 }
 
 /* Typewriter */
@@ -148,16 +157,16 @@ body.home .site-footer {
 
 /* PROSE */
 
-.prose {
-  @apply prose-code:before:hidden prose-code:after:hidden;
-}
+/* .prose { */
+/*   @apply prose-code:before:hidden prose-code:after:hidden; */
+/* } */
 
 .prose code {
   @apply font-normal text-base;
 }
 
 .prose pre {
-  @apply shadow-lg shadow-nav;
+  @apply shadow-lg;
 }
 
 /* .prose hr { */
@@ -169,11 +178,12 @@ body.home .site-footer {
   text-decoration:none
 }
 .prose a {
-  @apply border-b-2 border-transparent text-green;
+  @apply border-b-2 border-transparent;
+	color: var(--green)
 }
 
 .prose a:hover {
-  @apply border-b border-orange;
+  @apply border-b border-orange-400;
 }
 
 .text-green {
