@@ -31,7 +31,7 @@ struct Run {
         metadata: ArticleMetadata.self,
         readers: [.parsleyMarkdownReader],
         itemProcessor: sequence(removingBreaks, publicationDateInFilename, permalink),
-        filter: { $0.public == false },
+        filter: { $0.public == true },
         writers: [
           .itemWriter(swim(renderArticle)),
           .listWriter(swim(renderArticles)),

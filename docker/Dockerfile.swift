@@ -2,7 +2,7 @@
 # ==================================================
 # Build Swift Image
 # ==================================================
-FROM docker.io/swift:5.10-noble AS build
+FROM docker.io/swift:6.0-noble AS build
 
 
 # Install OS updates
@@ -15,16 +15,6 @@ ENV SWIFT_BACKTRACE=enable=no
 
 WORKDIR /build
 VOLUME /build
-#
-# # First just resolve dependencies.
-# COPY ./Package.* ./
-# RUN --mount=type=cache,target=/build/.build swift package resolve
-#
-# # Copy entire repo into container
-# COPY . .
-#
-# # Build the static site.
-# RUN --mount=type=cache,target=/build/.build swift run
 
 CMD ["swift", "run"]
 
