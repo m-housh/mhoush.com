@@ -1,7 +1,7 @@
 # ==================================================
 # Build Swift Image
 # ==================================================
-FROM docker.io/swift:5.10-noble AS build
+FROM docker.io/swift:6.2-noble AS build
 
 # Install OS updates
 RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
@@ -49,6 +49,8 @@ COPY --from=css /build/deploy .
 COPY --from=css /build/content/static/output.css ./static/output.css
 #COPY --from=css /build/deploy/pagefind ./pagefind
 COPY Caddyfile /etc/caddy/Caddyfile
+
+VOLUME /app
 
 RUN /usr/bin/caddy fmt --overwrite /etc/caddy/Caddyfile
 

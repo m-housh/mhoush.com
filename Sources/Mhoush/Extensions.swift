@@ -48,3 +48,22 @@ extension Item where M == ArticleMetadata {
     return primaryTag
   }
 }
+
+extension Array where Element == Item<ArticleMetadata> {
+  /// Iterate through the articles and get unique tags.
+  // func uniqueTags() -> Set<String> {
+  //   reduce(into: Set()) { set, item in
+  //     for tag in item.metadata.tags {
+  //       set.insert(tag)
+  //     }
+  //   }
+  // }
+
+  /// Iterate through the articles and get the unique tags along with count of how
+  /// many times the tag is used.
+  func uniqueTagsWithCount() -> [(String, Int)] {
+    let tags = flatMap { $0.metadata.tags }
+    let tagsWithCount = tags.reduce(into: [:]) { $0[$1, default: 0] += 1 }
+    return tagsWithCount.sorted { $0.1 > $1.1 }
+  }
+}

@@ -29,16 +29,21 @@ func renderHome(body: String) -> Node {
   div {
     img(alt: "Avatar", class: "my-24 w-[315px] h-200px mx-auto", src: "/static/images/avatar.png")
 
-    div(class: "my-24 uppercase font-avenir text-[40px] leading-[1.25] font-thin text-center [&>h1>strong]:font-bold") {
+    div(
+      class:
+        "my-24 uppercase font-avenir text-[40px] leading-[1.25] font-thin text-center [&>h1>strong]:font-bold"
+    ) {
       Node.raw(body)
     }
   }
 }
 
 func renderNonHome(body: String) -> Node {
-  article {
-    div(class: "prose") {
-      Node.raw(body)
+  div(class: "mx-10 lg:mx-20 lg:max-w-[90vw]") {
+    article {
+      div(class: "prose") {
+        Node.raw(body)
+      }
     }
   }
 }
