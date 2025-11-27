@@ -21,7 +21,7 @@ enum SiteMetadata {
 }
 
 /// Represents the valid file metadata for an article.
-struct ArticleMetadata: Metadata {
+struct ArticleMetadata: @unchecked Sendable, Metadata {
   /// The articles associated tags.
   let tags: [String]
 
