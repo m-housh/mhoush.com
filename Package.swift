@@ -7,9 +7,9 @@ let package = Package(
   name: "Mhoush",
   platforms: [.macOS(.v12)],
   dependencies: [
-    .package(url: "https://github.com/loopwerk/Saga", exact: "2.2.0"),
+    .package(url: "https://github.com/loopwerk/Saga", from: "2.0.0"),
     .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "1.0.0"),
-    .package(url: "https://github.com/loopwerk/SagaSwimRenderer", from: "1.0.0")
+    .package(url: "https://github.com/loopwerk/SagaSwimRenderer", from: "1.0.0"),
   ],
   targets: [
     // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -19,7 +19,7 @@ let package = Package(
       dependencies: [
         .product(name: "Saga", package: "Saga"),
         .product(name: "SagaParsleyMarkdownReader", package: "SagaParsleyMarkdownReader"),
-        .product(name: "SagaSwimRenderer", package: "SagaSwimRenderer")
+        .product(name: "SagaSwimRenderer", package: "SagaSwimRenderer"),
       ]
     )
   ]
