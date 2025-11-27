@@ -50,11 +50,13 @@ struct Run {
           .tagWriter(
             atomFeed(
               title: SiteMetadata.name,
-              author: SiteMetadata.author, baseURL: SiteMetadata.url, summary: \.metadata.summary
+              author: SiteMetadata.author,
+              baseURL: SiteMetadata.url,
+              summary: \.metadata.summary
             ),
             output: "tag/[key]/feed.xml",
             tags: \.metadata.tags
-          )
+          ),
         ]
       )
       // All the remaining markdown files will be parsed to html,
@@ -63,7 +65,7 @@ struct Run {
         metadata: PageMetadata.self,
         readers: [.parsleyMarkdownReader],
         itemProcessor: removingBreaks,
-        itemWriteMode: .keepAsFile, // need to keep 404.md as 404.html, not 404/index.html
+        itemWriteMode: .keepAsFile,  // need to keep 404.md as 404.html, not 404/index.html
         writers: [.itemWriter(swim(renderPage))]
       )
       // Run the steps we registered above

@@ -31,34 +31,34 @@ func baseLayout(
 
         footer(rssLink)
         // NOTE: These need to stay at / near bottom of the page, so that icons are generated properly.
-        script(src: "https://unpkg.com/lucide@latest")
-        Node.raw(
-          """
-          <script>
-            lucide.createIcons();
-          </script>
-          """)
+        // script(src: "https://unpkg.com/lucide@latest")
+        // Node.raw(
+        //   """
+        //   <script>
+        //     lucide.createIcons();
+        //   </script>
+        //   """)
 
-        Node.raw(
-          """
-          <script>
-            const sidebar = document.getElementById('sidebar');
-            const openSidebarButton = document.getElementById('open-sidebar');
-
-            openSidebarButton.addEventListener('click', (e) => {
-              e.stopPropagation();
-              sidebar.classList.toggle('-translate-x-full');
-            });
-
-            // Close the sidebar when clicking outside of it
-            document.addEventListener('click', (e) => {
-              if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
-                  sidebar.classList.add('-translate-x-full');
-              }
-            });
-          </script>
-          """
-        )
+        // Node.raw(
+        //   """
+        //   <script>
+        //     const sidebar = document.getElementById('sidebar');
+        //     const openSidebarButton = document.getElementById('open-sidebar');
+        //
+        //     openSidebarButton.addEventListener('click', (e) => {
+        //       e.stopPropagation();
+        //       sidebar.classList.toggle('-translate-x-full');
+        //     });
+        //
+        //     // Close the sidebar when clicking outside of it
+        //     document.addEventListener('click', (e) => {
+        //       if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
+        //           sidebar.classList.add('-translate-x-full');
+        //       }
+        //     });
+        //   </script>
+        //   """
+        // )
       }
     },
   ]
@@ -83,6 +83,11 @@ private func siteHeader(_ section: Section) -> Node {
         li {
           a(class: section == .about ? "active" : "", href: "/about.html") { "About" }
         }
+        // li {
+        //   a(class: section == .tags ? "active" : "", href: "#", id: "open-sidebar") {
+        //     "Browse Tags"
+        //   }
+        // }
       }
     }
   }

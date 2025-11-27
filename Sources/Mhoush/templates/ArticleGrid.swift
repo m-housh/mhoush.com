@@ -67,12 +67,14 @@ struct ArticleGrid: NodeConvertible {
       rssLink: rssLink,
       extraHeader: extraHeader
     ) {
-      div(class: "h-screen flex overflow-hidden") {
+      div(class: "flex overflow-hidden") {
 
         // Sidebar
         div(
-          class:
-            "absolute bg-gray-800 w-56 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300",
+          class: """
+            absolute z-50 bg-gray-800 w-56 min-h-screen overflow-y-auto
+            transition-transform transform -translate-x-full ease-in-out duration-300
+            """,
           id: "sidebar"
         ) {
           section(class: "pt-2") {
@@ -85,13 +87,11 @@ struct ArticleGrid: NodeConvertible {
           }
         }
 
-        // TODO: Needs added to navbar.
-        button(class: "text-gray-500 hover:text-gray-600", id: "open-sidebar") {
-          span { "Sidebar-Toggle" }
-        }
-
         // Articles
-        div(class: "lg:max-w-[80rem]") {
+        div(
+          class: "lg:max-w-[80rem]",
+          id: "articles"
+        ) {
           articles.map { key, articles in
             section {
               header(key)
@@ -105,20 +105,20 @@ struct ArticleGrid: NodeConvertible {
         Node.raw(
           """
           <script>
-              const sidebar = document.getElementById('sidebar');
-          const openSidebarButton = document.getElementById('open-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            const openSidebarButton = document.getElementById('open-sidebar');
 
-          openSidebarButton.addEventListener('click', (e) => {
+            openSidebarButton.addEventListener('click', (e) => {
               e.stopPropagation();
               sidebar.classList.toggle('-translate-x-full');
-          });
+            });
 
-          // Close the sidebar when clicking outside of it
-          document.addEventListener('click', (e) => {
+            // Close the sidebar when clicking outside of it
+            document.addEventListener('click', (e) => {
               if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
-                  sidebar.classList.add('-translate-x-full');
+                sidebar.classList.add('-translate-x-full');
               }
-          });
+            });
           </script>
 
           """)
