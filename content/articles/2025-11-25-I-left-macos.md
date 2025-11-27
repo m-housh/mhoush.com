@@ -1,7 +1,7 @@
 ---
 tags: general, linux, software
 public: true
-image: 2025-11-25-i-left-macos.png
+image: 2025-11-25-I-left-macos.png
 ---
 
 # I Left macOS

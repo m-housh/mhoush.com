@@ -106,55 +106,57 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
     title: context.item.title,
     extraHeader: generateHeader(.article(context.item))
   ) {
-    article(class: "prose") {
-      h1 { context.item.title }
-      div(class: "-mt-6") {
-        renderArticleInfo(context.item)
+    div(class: "w-full mx-20 max-w-[90vw]") {
+      article(class: "prose") {
+        h1 { context.item.title }
+        div(class: "-mt-6") {
+          renderArticleInfo(context.item)
+        }
+        img(alt: "banner", class: "mx-auto", src: context.item.imagePath)
+        Node.raw(context.item.body)
       }
-      img(alt: "banner", src: context.item.imagePath)
-      Node.raw(context.item.body)
-    }
 
-    div(class: "border-t border-light pt-8 mt-16") {
-      div(class: "grid lg:grid-cols-2") {
-        h2(class: "text-4xl font-extrabold mb-8") { otherArticles.title }
-        if let tag = otherArticles.tag {
-          a(href: "/articles/tag/\(tag)") {
-            div(class: " [&:hover]:border-b border-orange px-5 flex flex-row gap-5") {
-              img(src: "/static/images/tag.svg", width: "40")
-              span(class: "text-4xl font-extrabold text-orange") { tag }
+      div(class: "border-t border-light pt-8 mt-16") {
+        div(class: "grid lg:grid-cols-2") {
+          h2(class: "text-4xl font-extrabold mb-8") { otherArticles.title }
+          if let tag = otherArticles.tag {
+            a(href: "/articles/tag/\(tag)") {
+              div(class: " [&:hover]:border-b border-orange px-5 flex flex-row gap-5") {
+                img(src: "/static/images/tag.svg", width: "40")
+                span(class: "text-4xl font-extrabold text-orange") { tag }
+              }
+            }
+          }
+        }
+
+        div(class: "grid lg:grid-cols-2 gap-10") {
+          otherArticles.items.prefix(2).map { renderArticleForGrid(article: $0) }
+        }
+
+        div(class: "prose mt-10") {
+          a(href: "/articles/") {
+            div(class: "flex flex-row gap-2") {
+              span(class: "mt-8") { "All Articles" }
+              img(src: "/static/images/document.svg", width: "40")
             }
           }
         }
       }
 
-      div(class: "grid lg:grid-cols-2 gap-10") {
-        otherArticles.items.prefix(2).map { renderArticleForGrid(article: $0) }
-      }
+      // Giscus comment section.
+      commentSection
 
-      div(class: "prose mt-10") {
-        a(href: "/articles/") {
-          div(class: "flex flex-row gap-2") {
-            span(class: "mt-8") { "All Articles" }
-            img(src: "/static/images/document.svg", width: "40")
+      div(class: "border-t border-light mt-8 pt-8") {
+        h2(class: "text-4xl font-extrabold mb-8") { "Author" }
+        div(class: "flex flex-col lg:flex-row gap-8") {
+          div(class: "flex-[0_0_120px]") {
+            img(class: "w-[120px] h-[120px] rounded-full", src: "/static/images/avatar.png")
           }
-        }
-      }
-    }
 
-    // Giscus comment section.
-    commentSection
-
-    div(class: "border-t border-light mt-8 pt-8") {
-      h2(class: "text-4xl font-extrabold mb-8") { "Author" }
-      div(class: "flex flex-col lg:flex-row gap-8") {
-        div(class: "flex-[0_0_120px]") {
-          img(class: "w-[120px] h-[120px] rounded-full", src: "/static/images/avatar.png")
-        }
-
-        div(class: "prose") {
-          h3(class: "!m-0") { SiteMetadata.author }
-          p(class: "text-gray") { SiteMetadata.summary }
+          div(class: "prose") {
+            h3(class: "!m-0") { SiteMetadata.author }
+            p(class: "text-gray") { SiteMetadata.summary }
+          }
         }
       }
     }

@@ -8,6 +8,8 @@ enum Section: String {
   case articles
   /// The about page of the site.
   case about
+  // The tags list
+  case tags
   /// The 404 / not found page of the site.
   case notFound
 }

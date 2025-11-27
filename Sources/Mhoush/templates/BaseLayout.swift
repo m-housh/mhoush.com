@@ -24,13 +24,43 @@ func baseLayout(
       body(class: "bg-page text-white pb-5 font-avenir \(section.rawValue)") {
         siteHeader(section)
 
-        div(class: "container pt-12 lg:pt-28") {
+        // div(class: "pt-12 lg:pt-28") {
+        div(class: "content") {
           children()
         }
 
         footer(rssLink)
+        // NOTE: These need to stay at / near bottom of the page, so that icons are generated properly.
+        // script(src: "https://unpkg.com/lucide@latest")
+        // Node.raw(
+        //   """
+        //   <script>
+        //     lucide.createIcons();
+        //   </script>
+        //   """)
+
+        // Node.raw(
+        //   """
+        //   <script>
+        //     const sidebar = document.getElementById('sidebar');
+        //     const openSidebarButton = document.getElementById('open-sidebar');
+        //
+        //     openSidebarButton.addEventListener('click', (e) => {
+        //       e.stopPropagation();
+        //       sidebar.classList.toggle('-translate-x-full');
+        //     });
+        //
+        //     // Close the sidebar when clicking outside of it
+        //     document.addEventListener('click', (e) => {
+        //       if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
+        //           sidebar.classList.add('-translate-x-full');
+        //       }
+        //     });
+        //   </script>
+        //   """
+        // )
       }
-    }
+    },
   ]
 }
 
@@ -53,13 +83,19 @@ private func siteHeader(_ section: Section) -> Node {
         li {
           a(class: section == .about ? "active" : "", href: "/about.html") { "About" }
         }
+        // li {
+        //   a(class: section == .tags ? "active" : "", href: "#", id: "open-sidebar") {
+        //     "Browse Tags"
+        //   }
+        // }
       }
     }
   }
 }
 
 private func footer(_ rssLink: String) -> Node {
-  div(class: "site-footer text-gray gray-links border-t border-light text-center pt-6 mt-8 text-sm") {
+  div(class: "site-footer text-gray gray-links border-t border-light text-center pt-6 mt-8 text-sm")
+  {
     p {
       "Copyright © Michael Housh 2023-\(Date().description.prefix(4))."
     }
@@ -67,7 +103,9 @@ private func footer(_ rssLink: String) -> Node {
       "Built in Swift using"
       a(href: "https://github.com/loopwerk/Saga", rel: "nofollow", target: "_blank") { "Saga" }
       "("
-      %a(href: "https://github.com/m-housh/mhoush.com", rel: "nofollow", target: "_blank") { "source" }
+      %a(href: "https://github.com/m-housh/mhoush.com", rel: "nofollow", target: "_blank") {
+        "source"
+      }
       %")."
     }
     p {
@@ -87,7 +125,9 @@ private func footer(_ rssLink: String) -> Node {
       " | "
       a(href: "https://mastodon.social/@mhoush", rel: "me") { "Mastodon" }
       " | "
-      a(href: "https://www.facebook.com/michael.housh", rel: "nofollow", target: "_blank") { "Facebook" }
+      a(href: "https://www.facebook.com/michael.housh", rel: "nofollow", target: "_blank") {
+        "Facebook"
+      }
       " | "
       a(href: "mailto:michael@mhoush.com", rel: "nofollow") { "Email" }
     }
@@ -100,16 +140,26 @@ private func footer(_ rssLink: String) -> Node {
       }
     }
     script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js")
-    script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/keep-markup/prism-keep-markup.min.js")
-    script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js")
+    script(
+      src:
+        "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/keep-markup/prism-keep-markup.min.js"
+    )
+    script(
+      src:
+        "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+    )
   }
 }
 
 private func generateHeader(_ pageTitle: String, _ extraHeader: NodeConvertible) -> Node {
   head {
     meta(charset: "utf-8")
-    meta(content: "#0e1112", name: "theme-color", customAttributes: ["media": "(prefers-color-scheme: dark)"])
-    meta(content: "#566B78", name: "theme-color", customAttributes: ["media": "(prefers-color-scheme: light)"])
+    meta(
+      content: "#0e1112", name: "theme-color",
+      customAttributes: ["media": "(prefers-color-scheme: dark)"])
+    meta(
+      content: "#566B78", name: "theme-color",
+      customAttributes: ["media": "(prefers-color-scheme: light)"])
     meta(content: "Michael Housh", name: "author")
     meta(content: "Mhoush", name: "apple-mobile-web-app-title")
     meta(content: "initial-scale=1.0, width=device-width", name: "viewport")
@@ -123,7 +173,9 @@ private func generateHeader(_ pageTitle: String, _ extraHeader: NodeConvertible)
     link(href: "/static/favicon.ico", rel: "shortcut icon")
     link(href: "/static/output.css", rel: "stylesheet")
     link(href: "/static/style.css", rel: "stylesheet")
-    link(href: "/articles/feed.xml", rel: "alternate", title: SiteMetadata.name, type: "application/rss+xml")
+    link(
+      href: "/articles/feed.xml", rel: "alternate", title: SiteMetadata.name,
+      type: "application/rss+xml")
     extraHeader
     script(src: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js")
   }
