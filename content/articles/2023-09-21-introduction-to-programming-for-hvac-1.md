@@ -1,54 +1,64 @@
 ---
 tags: HVAC, programming, software
+image: https://photos.housh.dev/share/hICmKoP_wiMYXkhM5dPgF-v_xfAfNTf1saunMCdLZp896wMEWZUgB74YLPyBAktk4EU
 ---
 
 # Introduction to Programming for HVAC Part-1
 
-This is part one of a series of articles to help HVAC technicians (or others) get started in developing their skills to program. This can
-help to automate everyday tasks or just familiarize themselves with some of the tools used by programmers.
+This is part one of a series of articles to help HVAC technicians (or others) get started in
+developing their skills to program. This can help to automate everyday tasks or just familiarize
+themselves with some of the tools used by programmers.
 
 ## Why
 
-I think if nothing else, this series can help gain knowledge, tips, and tricks to make you more comfortable with your computer. I hope that
-you will at least learn how to use your `terminal` application and more specifically `vim` motions and keybindings (more on that in another
-article).
+I think if nothing else, this series can help gain knowledge, tips, and tricks to make you more
+comfortable with your computer. I hope that you will at least learn how to use your `terminal`
+application and more specifically `vim` motions and keybindings (more on that in another article).
 
-The goal of this article is to just get a machine setup with tools and to start exploring. I am a shill for `macOS`, so all of these will be
-specifically geared towards that and my workflows, most everything that is showcased should also work on `linux` machines (not sure about
-`windows`), although you may have to search for specific instructions on installing software for other platforms.
+The goal of this article is to just get a machine setup with tools and to start exploring. I am a
+shill for `macOS`, so all of these will be specifically geared towards that and my workflows, most
+everything that is showcased should also work on `linux` machines (not sure about `windows`),
+although you may have to search for specific instructions on installing software for other
+platforms.
 
-What I have learned on my journey in programming is that the more you can lean on small software packages that focus on a single task, but
-do them well, the better. The less you use your mouse, the more productive you can be. The more you can work with `text` files and formats
-the more portable and transformable your workflows can be.
+What I have learned on my journey in programming is that the more you can lean on small software
+packages that focus on a single task, but do them well, the better. The less you use your mouse, the
+more productive you can be. The more you can work with `text` files and formats the more portable
+and transformable your workflows can be.
 
 ## Getting Started
 
-The first thing that we will focus on is becoming familiar with the terminal application. On macOS the terminal application is located at
-`/Applications/Utilities/Terminal.app`. However, rather than click around to find it, you can use the `⌘<space>` to pull up your spotlight
-search, then type `Terminal` to select the terminal application.
+The first thing that we will focus on is becoming familiar with the terminal application. On macOS
+the terminal application is located at `/Applications/Utilities/Terminal.app`. However, rather than
+click around to find it, you can use the `⌘<space>` to pull up your spotlight search, then type
+`Terminal` to select the terminal application.
 
-![spotlight](/articles/images/2023-09-21-spotlight.png)
+![spotlight](https://photos.housh.dev/share/00S_DskdzecJnhBz6P70f-dEhxEuYYGQHKs5xy5fFjfPAaM5TNJDT6hoz6vmASVOG-s)
 
 ### Terminal Overview
 
-Your terminal is a program that allows you to run programs by typing commands into it's window. There are a lot of built-in commands and a
-bunch that you can install. The terminal is very customizable (and once familiar, you will constantly be tweaking / adjusting to suit your
-needs). Right now customization is not what we will focus on, however in future articles I will provide tips and tricks on customizing it.
-Right now, we only need to know how to open it up and type in commands.
+Your terminal is a program that allows you to run programs by typing commands into it's window.
+There are a lot of built-in commands and a bunch that you can install. The terminal is very
+customizable (and once familiar, you will constantly be tweaking / adjusting to suit your needs).
+Right now customization is not what we will focus on, however in future articles I will provide tips
+and tricks on customizing it. Right now, we only need to know how to open it up and type in
+commands.
 
-![terminal](/articles/images/2023-09-21-terminal.png)
+![terminal](https://photos.housh.dev/share/hGXyFWSiyEg0iEPyL64XG6tMwxyZTXJV06Fz8ybzTMgRFSEuFD83iKJnFBQ8Emb4n74)
 
 Below is an image / explanation of what the default status line includes.
 
-![terminal-line](/articles/images/2023-09-21-terminal-line.png)
+![terminal-line](https://photos.housh.dev/share/_tLfWTy3Nruh_f05nbhM5fSnKGFkM6UyEQ4vdyloOnzm9URRyScFDZ7krDxtmyWuegE)
 
 ### Learn Basic Commands (Built-in)
 
-Here are a few basic commands that you should familiarize yourself with, as you will use them often when working inside of a terminal.
+Here are a few basic commands that you should familiarize yourself with, as you will use them often
+when working inside of a terminal.
 
 ### Change Directory
 
-`cd` (change directory) is the command that allows you to move around your file system when inside the terminal.
+`cd` (change directory) is the command that allows you to move around your file system when inside
+the terminal.
 
 > **Note:** `~` is a representation of your `Home` directory.
 
@@ -58,7 +68,8 @@ cd ~/Documents
 
 The above command will move you into your Documents directory.
 
-> **Note:** If there are spaces in the name of the directory you try to move to then the easiest way is to wrap the name in quotes.
+> **Note:** If there are spaces in the name of the directory you try to move to then the easiest way
+> is to wrap the name in quotes.
 
 ```bash
 cd "~/Documents/Product Concepts"
@@ -66,22 +77,23 @@ cd "~/Documents/Product Concepts"
 
 Some other things to understand when moving around / supplying arguments to the `cd` command.
 
-You can use `..` to go backwards / move up to the parent directory. For example, say we are in the `~/Documents` directory, to go back up to
-the home directory we could use the following:
+You can use `..` to go backwards / move up to the parent directory. For example, say we are in the
+`~/Documents` directory, to go back up to the home directory we could use the following:
 
 ```bash
 cd ..
 ```
 
-These can be chained together as well. For example say we are located in the `~/Documents/Product Concepts` directory, we could use the
-following to go up two directory levels back to the home directory.
+These can be chained together as well. For example say we are located in the
+`~/Documents/Product Concepts` directory, we could use the following to go up two directory levels
+back to the home directory.
 
 ```bash
 cd ../..
 ```
 
-> **Pro-Tip:** You can use the `<tab>` key when navigating to auto-complete, generally typing a few characters followed with the `<tab>` key
-> will auto-complete for you.
+> **Pro-Tip:** You can use the `<tab>` key when navigating to auto-complete, generally typing a few
+> characters followed with the `<tab>` key will auto-complete for you.
 
 ### List files
 
@@ -110,16 +122,18 @@ espanso-migrate-backup
 espanso-migrate-backup-2
 ```
 
-Using options with `ls` to show more statistics and hidden files. There are often hidden files on your computer that are used for
-application support or other purposes, these files are not shown using the default command. Hidden files start with a `.`, below is an
-example of showing hidden files in your home directory.
+Using options with `ls` to show more statistics and hidden files. There are often hidden files on
+your computer that are used for application support or other purposes, these files are not shown
+using the default command. Hidden files start with a `.`, below is an example of showing hidden
+files in your home directory.
 
 ```bash
 ls -la ~/
 ```
 
-> **Note:** Above I added the `~/` which will allow you to list the files in your home directory even if you currently are not there in your
-> terminal, if you were already there (for example by using `cd ~/` then you would not need to use that at the end of the command.
+> **Note:** Above I added the `~/` which will allow you to list the files in your home directory
+> even if you currently are not there in your terminal, if you were already there (for example by
+> using `cd ~/` then you would not need to use that at the end of the command.
 
 _Example Output_
 
@@ -173,11 +187,13 @@ drwxr-xr-x    3 michael  staff     96 Jun  7  2021 WorkDocs Drive
 drwxr-xr-x    3 michael  staff     96 Sep 18 11:36 go
 ```
 
-As you can see, I have a lot of hidden files and folders, your output will probably look much different than mine.
+As you can see, I have a lot of hidden files and folders, your output will probably look much
+different than mine.
 
 ### Clearing the Terminal
 
-Often times you may want to clear the terminal screen. You can use the `clear` command to clear the screen of the terminal.
+Often times you may want to clear the terminal screen. You can use the `clear` command to clear the
+screen of the terminal.
 
 ```bash
 clear
@@ -189,9 +205,9 @@ Or use a keyboard shortcut `⌃l` (`<control>l`)
 
 Use `mkdir` (make directory) to create a directory.
 
-First, let's move into the `tmp` directory, the `tmp` directory is a directory on your file system that is typically used for applications
-to write temporary logs / files to, it get's erased everytime your computer is restarted. We can use the `cd` command that we learned
-earlier.
+First, let's move into the `tmp` directory, the `tmp` directory is a directory on your file system
+that is typically used for applications to write temporary logs / files to, it get's erased
+everytime your computer is restarted. We can use the `cd` command that we learned earlier.
 
 ```bash
 cd /tmp
@@ -205,9 +221,10 @@ mkdir MyDirectory
 
 #### Gotcha's with 'mkdir'
 
-By default you can't create directories that are multiple levels deep, unless the directories already existed or we provide the `-p` option.
-For example, if we want to create a directory at `/tmp/MyOtherDirectory/Nested/Deeply` then we could use the following command when inside
-the `tmp` directory.
+By default you can't create directories that are multiple levels deep, unless the directories
+already existed or we provide the `-p` option. For example, if we want to create a directory at
+`/tmp/MyOtherDirectory/Nested/Deeply` then we could use the following command when inside the `tmp`
+directory.
 
 ```bash
 mkdir -p MyOtherDirectory/Nested/Deeply
@@ -223,7 +240,8 @@ cd MyOther <tab> <tab> <tab>
 
 You can use the open command to open files or folders in the default application for the file type.
 
-For example, if we want to open a `Finder` window while in the `/tmp` directory, we can use the following command:
+For example, if we want to open a `Finder` window while in the `/tmp` directory, we can use the
+following command:
 
 ```bash
 open .
@@ -231,11 +249,13 @@ open .
 
 ### Manual Pages
 
-Lastly, to learn more about commands you can use the `man <command>`. To bring up the manual pages for the command in the terminal. You can
-use the arrow keys to navigate around the manual pages and type the letter `q` to quit / close the manual pages.
+Lastly, to learn more about commands you can use the `man <command>`. To bring up the manual pages
+for the command in the terminal. You can use the arrow keys to navigate around the manual pages and
+type the letter `q` to quit / close the manual pages.
 
 ```bash
 man ls
 ```
 
-That is it for the first installment in this series. I hope you learned something and have better understanding of using your terminal.
+That is it for the first installment in this series. I hope you learned something and have better
+understanding of using your terminal.

@@ -3,6 +3,7 @@ public: true
 date: 2023-10-18
 tags: article, general
 banner: true
+image: https://photos.housh.dev/share/7SzMi0C-au9T3h66nHZa9nd6RMYBkTb9fTiL207MUIaSmlilqRk7mHSYer1QIZmYX5w
 ---
 
 # The Struggle

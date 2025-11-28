@@ -10,4 +10,5 @@
 - [x] Update tailwind version
 - [ ] Add tags list / sidebar
   - This is started, but needs some work.
-- [ ] Move images to Immich and use links in articles.
+- [x] Move images to Immich and use links in articles.
+  - This works / is done, except `gif` images do not autoplay.

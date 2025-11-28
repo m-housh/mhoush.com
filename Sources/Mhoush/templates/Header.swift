@@ -22,8 +22,8 @@ func generateHeader(
       meta(content: SiteMetadata.author, name: "og:title"),
       meta(content: SiteMetadata.summary, name: "og:description"),
       meta(content: SiteMetadata.twitterImage, name: "og:image"),
-      meta(content: "1014", name: "og:image:width"),
-      meta(content: "530", name: "og:image:height"),
+      meta(content: "1200", name: "og:image:width"),
+      meta(content: "630", name: "og:image:height"),
     ])
   case .article(let article):
     return Node.fragment([
@@ -39,8 +39,8 @@ func generateHeader(
       meta(content: article.title, name: "og:title"),
       meta(content: article.summary, name: "og:description"),
       meta(content: article.imagePath, name: "og:image"),
-      meta(content: "1014", name: "og:image:width"),
-      meta(content: "530", name: "og:image:height"),
+      meta(content: "1200", name: "og:image:width"),
+      meta(content: "630", name: "og:image:height"),
       script(crossorigin: "anonymous", src: "https://kit.fontawesome.com/f209982030.js"),
       Node.raw(
         """

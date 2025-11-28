@@ -1,5 +1,6 @@
 ---
 tags: HVAC, general, programming
+image: https://photos.housh.dev/share/m4RjecfU__wJx67xdsLMK9WGHXQKlhn6T3zpzUdIjVek9iufKlYtDxwr-feyzMLZ9PE
 ---
 
 # You Should Learn Markdown
@@ -12,7 +13,7 @@ Markdown is a "mark-up" language. It allows you to write content in plain text t
 converted to other formats, such as **html, pdf, docx**, and many more. All the articles written on
 this website are written in markdown, here's an image of this article written in markdown.
 
-![markdown](/articles/images/2023-10-21-markdown.png)
+![markdown](https://photos.housh.dev/share/flie1qi2r5-E2NS2V4oS5-a1TpLQwcUGRpQ5LECTHdDkxjq4MD4uhpX41-gnIQzq4tE)
 
 The reason you should learn markdown is that it allows you to focus on the content / text of your
 content with simple concepts for formatting. Markdown is used heavily in documenting software

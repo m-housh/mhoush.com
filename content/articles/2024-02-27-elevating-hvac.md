@@ -1,5 +1,6 @@
 ---
 tags: HVAC
+image: https://photos.housh.dev/share/0NryxcCGj8eA_sxFl-kbA8ab0TKnWc3psXkDtO-_0X7tqOZBfFati0ZwqsZV5xkFmII
 ---
 
 # Elevating HVAC: A Skilled Trade Beyond Labor
