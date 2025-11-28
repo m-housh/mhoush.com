@@ -1,5 +1,6 @@
 ---
 tags: general
+image: https://photos.housh.dev/share/gCFhWW5IMAlDVMrsf8c2t-sNeQf6jid1Y-vYMbkqpuFmPV5rHdYzroRyQfEFzjuxD3A
 ---
 
 # In the Spirit of Thanksgiving
