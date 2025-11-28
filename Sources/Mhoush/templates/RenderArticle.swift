@@ -109,7 +109,7 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
     div(class: "w-full mx-20 max-w-[90vw]") {
       article(class: "prose") {
         h1 { context.item.title }
-        div(class: "-mt-6") {
+        div(class: "-mt-5") {
           renderArticleInfo(context.item)
         }
         img(alt: "banner", class: "mx-auto", src: context.item.imagePath)
@@ -144,7 +144,7 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
       }
 
       // Giscus comment section.
-      commentSection
+      // commentSection
 
       div(class: "border-t border-light mt-8 pt-8") {
         h2(class: "text-4xl font-extrabold mb-8") { "Author" }
@@ -180,29 +180,29 @@ func renderArticleForGrid(article: Item<ArticleMetadata>) -> Node {
   }
 }
 
-private var commentSection: Node {
-  div(class: "border-t border-light pt-8") {
-    Node.raw(
-      """
-            <script src="https://giscus.app/client.js"
-              data-repo="m-housh/mhoush.com"
-              data-repo-id="R_kgDOJagAXA"
-              data-category="Article Discussions"
-              data-category-id="DIC_kwDOJagAXM4CnLfv"
-              data-mapping="pathname"
-              data-strict="0"
-              data-reactions-enabled="1"
-              data-emit-metadata="0"
-              data-input-position="bottom"
-              data-theme="preferred_color_scheme"
-              data-lang="en"
-              data-loading="lazy"
-              crossorigin="anonymous"
-              async>
-           </script>
-      """)
-  }
-}
+// private var commentSection: Node {
+//   div(class: "border-t border-light pt-8") {
+//     Node.raw(
+//       """
+//             <script src="https://giscus.app/client.js"
+//               data-repo="m-housh/mhoush.com"
+//               data-repo-id="R_kgDOJagAXA"
+//               data-category="Article Discussions"
+//               data-category-id="DIC_kwDOJagAXM4CnLfv"
+//               data-mapping="pathname"
+//               data-strict="0"
+//               data-reactions-enabled="1"
+//               data-emit-metadata="0"
+//               data-input-position="bottom"
+//               data-theme="preferred_color_scheme"
+//               data-lang="en"
+//               data-loading="lazy"
+//               crossorigin="anonymous"
+//               async>
+//            </script>
+//       """)
+//   }
+// }
 
 // private func comments(_ article: Item<ArticleMetadata>) -> Node {
 //   Node.raw("""

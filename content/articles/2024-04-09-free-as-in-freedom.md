@@ -1,6 +1,7 @@
 ---
 tags: general, open-source, software
 summary: Salute to open-source software engineers
+image: https://photos.housh.dev/share/aNvcvai19WnDGsXn4xsMy1VkJ3KBJgKNERiKs0s_MHsqgLcAKXaO_NxCIT9apthdCak
 ---
 
 # Free As In Freedom
@@ -14,7 +15,7 @@ preface this whole article by saying that everything I'm going to lay out / ment
 that I am personally guilty of. This is an open reminder and call out of things that I feel should
 change.
 
-# Our perspective is flawed
+## Our perspective is flawed
 
 Nobody can dispute that the advances in technology have greatly improved our lives. Like anything,
 though, there is a trade off.

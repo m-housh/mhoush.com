@@ -3,6 +3,7 @@ tags: HVAC, design, formulas
 summary: Why should design for higher than nominal airflow.
 public: true
 primaryTag: design
+image: https://photos.housh.dev/share/z6pECIIwuJzcLwcUxTdcMiHj2kSeuf7ZwS77VVGdfjgFX2sA6D-KifQFV7iZnZABIRc
 ---
 
 # A Case For Higher Airflow
@@ -39,7 +40,7 @@ how many times the room air passes across the filter and is replaced with fresh 
 
 As an experiment, I decided to do a fake load calculation of the first floor layout of my house.
 
-![floor plan](/articles/images/2025-02-22-floor-plan.png)
+![floor plan](https://photos.housh.dev/share/51-JKjWNb1u__PPER_U7E_wfcOms0KOJnaDzAYdKJ9ZU4vaZe6vVZFlBN13rRlKzAdQ)
 
 Which resulted in the following loads:
 

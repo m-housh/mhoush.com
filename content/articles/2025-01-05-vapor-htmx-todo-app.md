@@ -1,14 +1,15 @@
 ---
 tags: general, software, programming
 summary: Build an example application using Vapor and HTMX.
+image: https://photos.housh.dev/share/HGtNgmJwRYTtnAckizIyFc27ZsTXhzvv7P1kJkBuPYfvNRdjZybz5BfBEw-jMEQNL6U
 ---
 
 # Vapor + HTMX
 
 ## Introduction
 
-This post is a quick example of creating a very basic todo web application using `Vapor` a swift web framework and `Htmx`, with no custom
-javascript required.
+This post is a quick example of creating a very basic todo web application using `Vapor` a swift web
+framework and `Htmx`, with no custom javascript required.
 
 [Vapor](https://docs.vapor.codes)
 
@@ -30,8 +31,9 @@ Next, generate the project using the vapor command-line tool.
 vapor new todo-htmx --fluent.db sqlite --leaf
 ```
 
-The above command will generate a new project that uses an `SQLite` database along with vapor's `Leaf` templating engine. You can move into
-the project directory and browse around the files that are generated.
+The above command will generate a new project that uses an `SQLite` database along with vapor's
+`Leaf` templating engine. You can move into the project directory and browse around the files that
+are generated.
 
 ```bash
 cd todo-htmx
@@ -39,8 +41,8 @@ cd todo-htmx
 
 ## Update the Controller
 
-Open the `Sources/App/Controllers/TodoController.swift` file. This file handles the api routes for our `Todo` database model. Personally I
-like to prefix these routes with `api`.
+Open the `Sources/App/Controllers/TodoController.swift` file. This file handles the api routes for
+our `Todo` database model. Personally I like to prefix these routes with `api`.
 
 Update the first line in the `boot(routes: RoutesBuilder)` function to look like this.
 
@@ -48,13 +50,14 @@ Update the first line in the `boot(routes: RoutesBuilder)` function to look like
 let todos = routes.grouped("api", "todos")
 ```
 
-Everything else can stay the same. This changes these routes to be exposed at `http://localhost:8080/api/todos`, which will allow our routes
-that return html views to be able to be exposed at `http://localhost:8080/todos`.
+Everything else can stay the same. This changes these routes to be exposed at
+`http://localhost:8080/api/todos`, which will allow our routes that return html views to be able to
+be exposed at `http://localhost:8080/todos`.
 
 ## Update the Todo Model
 
-A todo is not very valuable without a way to tell if it needs to be completed or not. So, let's add a field to our database model
-(`Sources/App/Models/Todo.swift`).
+A todo is not very valuable without a way to tell if it needs to be completed or not. So, let's add
+a field to our database model (`Sources/App/Models/Todo.swift`).
 
 Update the file to include the following:
 
@@ -95,7 +98,8 @@ final class Todo: Model, @unchecked Sendable {
 }
 ```
 
-Since we added a field to our database model, we also need to update the migration file (`Sources/App/Migrations/CreateTodo.swift`).
+Since we added a field to our database model, we also need to update the migration file
+(`Sources/App/Migrations/CreateTodo.swift`).
 
 ```swift
 import Fluent
@@ -115,12 +119,13 @@ struct CreateTodo: AsyncMigration {
 }
 ```
 
-This just adds our new field to the database schema when we run the migrations, which we will do later on in the tutorial.
+This just adds our new field to the database schema when we run the migrations, which we will do
+later on in the tutorial.
 
 ### Update the Data Transfer Object
 
-We also need to add the `complete` field to our data transfer object (`DTO`). This model is used as an intermediate between our database and
-the user.
+We also need to add the `complete` field to our data transfer object (`DTO`). This model is used as
+an intermediate between our database and the user.
 
 ```swift
 import Fluent
@@ -146,9 +151,11 @@ struct TodoDTO: Content {
 
 ## Generate the View Templates
 
-Our index template was already generated at `Resources/Views/index.leaf`, open the file and edit the contents to match the following.
+Our index template was already generated at `Resources/Views/index.leaf`, open the file and edit the
+contents to match the following.
 
-> Note: You can learn more about the [leaf templating engine here.](https://docs.vapor.codes/leaf/getting-started/)
+> Note: You can learn more about the
+> [leaf templating engine here.](https://docs.vapor.codes/leaf/getting-started/)
 
 ```html
 <!doctype html>
@@ -176,15 +183,18 @@ Our index template was already generated at `Resources/Views/index.leaf`, open t
 </html>
 ```
 
-The important parts here are the `<script>` tag in the head element which will include `Htmx` in our project.
+The important parts here are the `<script>` tag in the head element which will include `Htmx` in our
+project.
 
 The head element also contains a link to a custom `css` stylesheet that we will create shortly.
 
-We add a `form` element that will be used to generate a new todo item in the database. This is a basic / standard html form, but we are
-using `Htmx` to post the form contents to the route `POST http://localhost:8080/todos`, which we will create shortly.
+We add a `form` element that will be used to generate a new todo item in the database. This is a
+basic / standard html form, but we are using `Htmx` to post the form contents to the route
+`POST http://localhost:8080/todos`, which we will create shortly.
 
-Then there's the `table` element that will contain the contents of our todos. When the page is loaded it will use `Htmx` to fetch the todos
-from `GET http://localhost:8080/todos` route, which we will create shortly.
+Then there's the `table` element that will contain the contents of our todos. When the page is
+loaded it will use `Htmx` to fetch the todos from `GET http://localhost:8080/todos` route, which we
+will create shortly.
 
 ### Todos Table Template
 
@@ -233,14 +243,16 @@ The contents of this file should be the following:
 </table>
 ```
 
-Here, we just create a table that is 3 columns wide from a list of todos that we will pass in to the template. We use `Htmx` to handle
-updating a todo if a user clicks a checkbox to mark the todo as `complete`, we also add a button in the last column of the table that we use
-`Htmx` to handle deleting a todo from the database.
+Here, we just create a table that is 3 columns wide from a list of todos that we will pass in to the
+template. We use `Htmx` to handle updating a todo if a user clicks a checkbox to mark the todo as
+`complete`, we also add a button in the last column of the table that we use `Htmx` to handle
+deleting a todo from the database.
 
 ## Controllers
 
-The controllers handle the routes that our website exposes. The project template creates a controller for us that handles `JSON` / `API`
-requests, but we do need to make a couple of changes to the file (`Sources/App/Controllers/TodoController.swift`).
+The controllers handle the routes that our website exposes. The project template creates a
+controller for us that handles `JSON` / `API` requests, but we do need to make a couple of changes
+to the file (`Sources/App/Controllers/TodoController.swift`).
 
 ```swift
 import Fluent
@@ -295,16 +307,19 @@ struct TodoController: RouteCollection {
 }
 ```
 
-The primary changes here are to add the `update(req: Request)` function at the bottom, which handles updating a todo that has already been
-created. This will be used when a user clicks on the checkbox to mark a todo as complete or incomplete.
+The primary changes here are to add the `update(req: Request)` function at the bottom, which handles
+updating a todo that has already been created. This will be used when a user clicks on the checkbox
+to mark a todo as complete or incomplete.
 
-We also change the route in the `boot(routes: RoutesBuilder)` method to make all these routes accessible at `/api/todos` instead of the
-original `/todos` as we will use the `/todos` routes for returning our views from our view controller.
+We also change the route in the `boot(routes: RoutesBuilder)` method to make all these routes
+accessible at `/api/todos` instead of the original `/todos` as we will use the `/todos` routes for
+returning our views from our view controller.
 
 ### Todo View Controller
 
-Next we need to create our view controller, it is what will be used to handle routes that should return `html` content for our website. This
-controller will actually use the api controller to do the majority of it's work.
+Next we need to create our view controller, it is what will be used to handle routes that should
+return `html` content for our website. This controller will actually use the api controller to do
+the majority of it's work.
 
 The easiest thing is to make a copy of the current api controller:
 
@@ -359,8 +374,9 @@ struct TodoViewController: RouteCollection {
 }
 ```
 
-Here we use the api controller to do the heavy lifting of communicating with the database, then we just always return / render the
-`todos.leaf` template that we created earlier, which will update our web page with the list of todos retreived from the database.
+Here we use the api controller to do the heavy lifting of communicating with the database, then we
+just always return / render the `todos.leaf` template that we created earlier, which will update our
+web page with the list of todos retreived from the database.
 
 > Note: There are better ways to handle this, however this is just a simple example.
 
@@ -386,8 +402,8 @@ func routes(_ app: Application) throws {
 }
 ```
 
-Here, we just add the `TodoViewController` at the bottom so vapor will be able to handle those routes and also update the title to be
-`Todos` (in the first `app.get` near the top).
+Here, we just add the `TodoViewController` at the bottom so vapor will be able to handle those
+routes and also update the title to be `Todos` (in the first `app.get` near the top).
 
 ## Build and Run
 
@@ -399,8 +415,8 @@ First, let's make sure the project builds.
 swift build
 ```
 
-This may take a minute if it's the first time building the project as it has to fetch the dependencies. If you experience problems here then
-make sure you don't have typos in your files.
+This may take a minute if it's the first time building the project as it has to fetch the
+dependencies. If you experience problems here then make sure you don't have typos in your files.
 
 Next, we need to run the database migrations.
 
@@ -414,15 +430,15 @@ Finally, we can run the application.
 swift run App
 ```
 
-You should be able to open your browser and type in the url: `http://localhost:8080` to view the application. You can experiment with adding
-a new todo using the form.
+You should be able to open your browser and type in the url: `http://localhost:8080` to view the
+application. You can experiment with adding a new todo using the form.
 
 > Note: To stop the application use `Ctrl-c`
 
 ## Bonus Styles
 
-Hopefully you weren't blinded the first time you opened the application. You can add custom styles by creating a `css` file
-(`Public/css/main.css`).
+Hopefully you weren't blinded the first time you opened the application. You can add custom styles
+by creating a `css` file (`Public/css/main.css`).
 
 ```bash
 mkdir Public/css
@@ -461,8 +477,8 @@ td {
 }
 ```
 
-Currently vapor does not know to serve files from the `Public` directory, so we need to update the `Sources/App/configure.swift` file, by
-uncommenting the line near the top.
+Currently vapor does not know to serve files from the `Public` directory, so we need to update the
+`Sources/App/configure.swift` file, by uncommenting the line near the top.
 
 ```swift
 import Fluent

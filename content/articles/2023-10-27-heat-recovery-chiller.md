@@ -1,5 +1,6 @@
 ---
 tags: HVAC, hydronics, chiller
+image: https://photos.housh.dev/share/DAoFQP0Y8WTHy2atV8EK83vUp6hkpN7L0fwmxMw1aK-hGkKtjoKXFAFcrQyFivDwfdU
 ---
 
 # Heat Recovery Chiller
@@ -34,7 +35,7 @@ matching, and the ability to size for larger load (heating or cooling) without s
 that occur when over-sizing a traditional system. The buffer tanks also allow sizing more
 aggressively by having storage during peak load conditions.
 
-![buffer](/articles/images/2023-10-27-buffers2.png)
+![buffer](https://photos.housh.dev/share/iMY6UCnjn8AeLD5d901JJybStjn557hvs4R5pImWUMNG0TYu8mfE78mPbNLAR2zN4FA)
 
 This shows a cooling buffer tank as well as a heating buffer tank. The horizontal pumps are what
 circulate water through the chiller, while the vertical pumps are what distribute the water to the
@@ -52,7 +53,7 @@ exchanger that would be used to supply domestic hot water.
 This could be a number of things, from radiant panels, in-floor, high-output baseboard radiators,
 however I'm going to model it as a 4-pipe hydronic air handler.
 
-![ah](/articles/images/2023-10-27-ah.png)
+![ah](https://photos.housh.dev/share/ZSfIJgyoRQ9HFAWV2JISFfzbyxh0nco0PFgC5ZW1PQjpAPRnyEcNxoTAirHMyQi6uvU)
 
 The hydronic air handler is able to provide cooling, heating, and re-heat dehumidification, all in
 one package. With a hydronic system, it would be very easy to load match by controlling the fan

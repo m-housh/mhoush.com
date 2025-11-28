@@ -1,5 +1,6 @@
 ---
 tags: programming, networking, nas, how-to
+image: https://photos.housh.dev/share/ha543QkPtKidsn5XBYKOZK-rlfncrkOaBhpkv8Hr6Jy6dnDXeMkZ_qRMkjbDt47aDGQ
 ---
 
 # UNVR as NAS
@@ -19,7 +20,7 @@ with some adaptations to get it to work on the latest Unifi-OS release of `3.2.1
 In your unifi network console you need to enable the `SSH` login option and set a secure password
 for the root user to login to the UNVR.
 
-![ssh.png](/articles/images/2024-03-15-ssh.png)
+![ssh.png](https://photos.housh.dev/share/wycabzPoUGon6C7bsgMpjLECtWOqVhrS9LA2P5PuV1FHDoDPyOD0JT9hYSL0wDQ5dQQ)
 
 Once that is complete you can login to your UNVR using your terminal and the IP address of your UNVR
 on your network.
@@ -89,7 +90,7 @@ You can check the status, by running the following command.
 
 `systemctl status smbd`
 
-![status](/articles/images/2024-03-15-status.png)
+![status](https://photos.housh.dev/share/ioHty12Su5CPp4tm8ZY2NdwPuet7k4nUlJPTndZzo8ctvPWe5nOW4qQymUoqm2TmbTI)
 
 Enable the samba server to start on boot.
 
@@ -111,7 +112,7 @@ In the `Finder` app on macOS you can type `⌘k` to connect to a server.
 
 In the text field enter `smb://<USER>@<UNVR_IP>` to connect to the samba server.
 
-![connect](/articles/images/2024-03-15-connect.png)
+![connect](https://photos.housh.dev/share/xbKWckIgR4W2dJfWdFuv6pYit2VTasgpXr4dAYX8fPBMtuiOVnASJGTr_JM_9UsJ21g)
 
 You can also automatically connect to the server when you login to your client device, for this to
 work you need the credentials to be stored in your keychain (ticking the box in the step above when
@@ -120,9 +121,9 @@ you first connect to the server).
 This is found in `System Settings -> General -> Login Items -> Open at Login`. Click the plus button
 and select the volume you would like to mount at login.
 
-![login](/articles/images/2024-03-15-login.png)
+![login](https://photos.housh.dev/share/eUtq6OIYwNzpdB9FhmSIBNMMOu7IFQu1t505OsIGfK2Q_vcNCnriorDLwgIG_koufGw)
 
 Once you have it setup so that the server is connected on login, you can also set it up as location
 for Time Machine Backups. `System Settings -> General -> Time Machine`
 
-![time-machine](/articles/images/2024-03-15-time-machine.png)
+![time-machine](https://photos.housh.dev/share/h2YBeDHzZlsR4QOO1o09WwlTRXo9DTbNTFxVLLOi6ua0BOfJbHjNuqC4QCwEIiJy05I)
