@@ -23,7 +23,7 @@ extension Item where M == ArticleMetadata {
 
   /// The articles banner image path.
   var imagePath: String {
-    let image = metadata.image ?? "\(filenameWithoutExtension).png"
+    let image = metadata.image ?? "\(filenameWithoutExtension).webp"
     // If the image is a link, then just return the link.
     if image.hasPrefix("http") {
       return image
