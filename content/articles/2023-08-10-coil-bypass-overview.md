@@ -27,22 +27,8 @@ in the HVAC design space or not.
 
 ## The Problem
 
-<!-- <table> -->
-<!--     <tr> -->
-<!--         <th>Why</th> -->
-<!--         <th></th> -->
-<!--     </tr> -->
-<!--     <tr> -->
-<!--         <td>Question</td> -->
-<!--         <td>Why would we want to utilize a strategy such as the coil bypass?</td> -->
-<!--     </tr> -->
-<!--     <tr> -->
-<!--         <td>Answer</td> -->
-<!--         <td>Improved indoor air quality (IAQ)</td> -->
-<!--     </tr> -->
-<!-- </table> -->
 
-| Why      |  Answer                                                                |
+| Why      |  <span>&nbsp;</span>                                             |
 | -------- | ---------------------------------------------------------------- |
 | Question | Why would we want to utilize a strategy such as the coil bypass? |
 | Answer   | Improved indoor air quality (IAQ)                                |
