@@ -48,9 +48,8 @@ We determine the volume of the conditioned space.
 
 ![volume-equation](/articles/images/2023-08-10-volume-equation.png)
 
-<!--
 
-| **Where:** |                                       |
+| **Where:** | &nbsp;                                      |
 | ---------- | ------------------------------------- |
 | **V**      | _is the volume of the home_           |
 | **ACH**    | _is the desired air changes per hour_ |
@@ -58,12 +57,11 @@ We determine the volume of the conditioned space.
 
 Below is a table of the required CFM to meet the different air changes per hour.
 
-|                 |         CFM         |
+| &nbsp;                |         CFM         |
 | --------------- | :-----------------: |
 | (22,500 x 3)/60 | **_1,125 @ 3 ACH_** |
 | (22,500 x 4)/60 | **_1,500 @ 4 ACH_** |
 | (22,500 x 5)/60 | **_1,875 @ 5 ACH_** |
--->
 
 As you can see we have a discrepency of meeting even the low end of 3 ACH. The high end of 5 ACH is over 2x the airflow for our 2.5 Ton
 system. The coil bypass strategy is one viable way, by decoupling the total system airflow from the coil airflow without, which eliminates

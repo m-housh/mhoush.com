@@ -41,16 +41,14 @@ We can then use the following formula to calculate the pounds of water removed.
 
 ![formula](/articles/images/2023-09-08-formula.png)
 
-<!--
 
-| **Where**    |                                                          |
+| **Where**    | &nbsp;                                                          |
 | ------------ | -------------------------------------------------------- |
 | **W**        | _Weight of water in pounds per hour_                     |
 | **4.5**      | _Constant based on density / specific heat of moist air_ |
 | **CFM**      | _Airflow in cubic feet per minute_                       |
 | **&#8710;G** | _Difference in grains of moisture_                       |
 | **7000**     | _Constant based on grains of moisture in saturated air_  |
--->
 
 ## Solution
 
