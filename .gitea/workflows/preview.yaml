@@ -50,7 +50,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha
-            type=raw,value=latest
+            type=raw,value=preview
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6
