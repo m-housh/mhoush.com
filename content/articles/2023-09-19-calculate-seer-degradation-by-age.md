@@ -16,12 +16,15 @@ This is the formula used to calculate the SEER based on age of the evaporator co
 
 $$ SEER_d = SEER_n \times (1 - M)^{age} $$
 
+<!--
+
 | Where      |                                            |
 | ---------- | ------------------------------------------ |
 | $ SEER_d $ | Degradated SEER rating                     |
 | $ SEER_n $ | Nominal SEER rating when equipment was new |
 | $ M $      | Maintenance factor, 0.01-0.03              |
 | $ age $    | The age of the equipment, in years         |
+-->
 
 The maintenance factor of 0.01 is for expertly maintained equipment and 0.03 is for unmaintained. The maintenance factor in essence is based
 on 1%-3% degradation per year, however there are some

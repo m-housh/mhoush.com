@@ -19,6 +19,7 @@ items that are required as what I'm calling "prior to installation" items.
 1. Properly matched systems (AHRI or CEE-AHRI)
 
 Let's break the above items down to a rough estimated time to complete each of the items.
+<!--
 
 | Item                                | Time (minutes) |
 | ----------------------------------- | -------------- |
@@ -28,6 +29,7 @@ Let's break the above items down to a rough estimated time to complete each of t
 | Manual-S                            | 15             |
 | AHRI                                | 15             |
 | **Total**                           | 105            |
+-->
 
 > _The above items are obviously just estimations and the person's experience in the different areas / tools they use. Some of the items are
 > probably on the low side while others are probably on the high side._

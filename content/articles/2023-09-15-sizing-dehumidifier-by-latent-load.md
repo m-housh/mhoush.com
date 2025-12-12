@@ -10,6 +10,7 @@ you've done a load calculation and know the latent load of the structure.
 ## Formulas
 
 The formula above is used to solve for the pints per hour required to size a dehumidifier.
+<!--
 
 | Where |              |
 | ----- | ------------ |
@@ -24,6 +25,7 @@ We can then convert to pints per day by multiplying the answer by 24 hours, belo
 | ----- | ----------- |
 | Ql    | Latent load |
 | Pd    | Pints / day |
+-->
 
 In some cases you may want to size the dehumidifier for less than the full latent load, assuming that the air-conditioner (when sized
 properly) is going to cover the full latent load when at peak design temperatures and that the peak latent period for your area is during
