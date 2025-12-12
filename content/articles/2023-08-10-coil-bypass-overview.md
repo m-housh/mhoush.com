@@ -28,7 +28,7 @@ in the HVAC design space or not.
 ## The Problem
 
 
-| Why      |                                                                  |
+| Why      |  &nbsp;                                                                |
 | :------- | :--------------------------------------------------------------- |
 | Question | Why would we want to utilize a strategy such as the coil bypass? |
 | Answer   | Improved indoor air quality (IAQ)                                |
