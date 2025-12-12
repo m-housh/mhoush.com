@@ -27,15 +27,14 @@ in the HVAC design space or not.
 
 ## The Problem
 
-<!--
 
 | Why      |                                                                  |
 | -------- | ---------------------------------------------------------------- |
 | Question | Why would we want to utilize a strategy such as the coil bypass? |
 | Answer   | Improved indoor air quality (IAQ)                                |
--->
 
-ASHRAE's recommandation for the amount of air changes per hour (ACH) in a residential structure to be in the range of 3-5 ACH, and in
+
+ASHRAE's recommendation for the amount of air changes per hour (ACH) in a residential structure to be in the range of 3-5 ACH, and in
 general the higher the better, along with a MERV 13+ filter. In some / most cases the system airflow does not meet that criteria, especially
 low load homes or high volume homes.
 
