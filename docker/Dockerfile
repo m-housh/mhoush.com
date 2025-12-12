@@ -30,12 +30,13 @@ FROM docker.io/node:23-alpine AS css
 
 WORKDIR /build
 
-RUN npm install -g pnpm@latest-10
+RUN npm install -g pnpm@latest-10 html-minifier
 
 COPY . .
 COPY --from=build /build/deploy ./deploy
 
 RUN pnpm install && pnpm run css-build
+RUN html-minifier --collapse-whitespace --input-dir ./deploy --file-ext html --output-dir deploy
 #RUN npx -y pagefind --site deploy
 
 # ==================================================
