@@ -23,12 +23,12 @@ extension Item where M == ArticleMetadata {
 
   /// The articles banner image path.
   var imagePath: String {
-    let image = metadata.image ?? "\(filenameWithoutExtension).png"
+    let image = metadata.image ?? "\(filenameWithoutExtension).webp"
     // If the image is a link, then just return the link.
     if image.hasPrefix("http") {
       return image
     }
-    return "\(SiteMetadata.url)/articles/images/\(image)"
+    return "/articles/images/\(image)"
   }
 
   /// An easy way to only get public articles, since ArticleMetadata.public is optional

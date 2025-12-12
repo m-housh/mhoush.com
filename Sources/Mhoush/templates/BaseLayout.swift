@@ -136,7 +136,7 @@ private func footer(_ rssLink: String) -> Node {
         "All articles are licensed under Creative-Commons (CC BY-NC) 4.0"
       }
       a(href: "https://creativecommons.org/licenses/by-nc/4.0/") {
-        img(class: "justify-center", src: "/static/images/by-nc.png", width: "100")
+        img(class: "justify-center", src: "/static/images/by-nc.webp", width: "100")
       }
     }
     script(src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js")

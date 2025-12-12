@@ -26,6 +26,7 @@ how many times the room air passes across the filter and is replaced with fresh 
 
 ### Recommended ACH in Residential Rooms
 
+
 | Room Type     | ACH Requirements |
 | ------------- | ---------------- |
 | Basements     | 3-4              |
@@ -34,6 +35,7 @@ how many times the room air passes across the filter and is replaced with fresh 
 | Living Rooms  | 6-8              |
 | Kitchens      | 6-8              |
 | Laundry Rooms | 8-9              |
+
 
 ## An Example Home
 

@@ -16,7 +16,8 @@ This is the formula used to calculate the SEER based on age of the evaporator co
 
 $$ SEER_d = SEER_n \times (1 - M)^{age} $$
 
-| Where      |                                            |
+
+| Where      | &nbsp;                                           |
 | ---------- | ------------------------------------------ |
 | $ SEER_d $ | Degradated SEER rating                     |
 | $ SEER_n $ | Nominal SEER rating when equipment was new |

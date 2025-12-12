@@ -27,7 +27,7 @@ func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
 
 func renderHome(body: String) -> Node {
   div {
-    img(alt: "Avatar", class: "my-24 w-[315px] h-200px mx-auto", src: "/static/images/avatar.png")
+    img(alt: "Avatar", class: "my-24 w-[315px] h-200px mx-auto", src: "/static/images/avatar.webp")
 
     div(
       class:

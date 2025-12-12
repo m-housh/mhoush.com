@@ -37,12 +37,14 @@ You can learn more about the syntax used for markdown at
 
 ### A non-exhaustive list of where you can use Markdown and editors.
 
+
 | Platform     | Description                                                     |
 | ------------ | --------------------------------------------------------------- |
 | Google       | Most goggle tools support markdown, docs, sheets, etc.          |
 | Outlook      | Although I hate outlook email client, it does support markdown. |
 | Dillinger.io | An online tool for writing / previewing markdown                |
 | MarkText     | A multi-platform editor for writing markdown                    |
+
 
 You can use tools such as [pandoc](https://pandoc.org/#) to convert Markdown files to other formats.
 

@@ -29,6 +29,7 @@ Let's break the above items down to a rough estimated time to complete each of t
 | AHRI                                | 15             |
 | **Total**                           | 105            |
 
+
 > _The above items are obviously just estimations and the person's experience in the different areas / tools they use. Some of the items are
 > probably on the low side while others are probably on the high side._
 

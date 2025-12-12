@@ -4,5 +4,5 @@
   command = "swift run --configuration release Mhoush && npm install -g html-minifier && html-minifier --collapse-whitespace --input-dir deploy --file-ext html --output-dir deploy"
 
 [build.environment]
-  SWIFT_VERSION = "6.0.1"
+  SWIFT_VERSION = "6.2"
   NODE_VERSION = "20"

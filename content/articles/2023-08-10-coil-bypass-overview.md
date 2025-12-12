@@ -27,12 +27,14 @@ in the HVAC design space or not.
 
 ## The Problem
 
-| Why      |                                                                  |
-| -------- | ---------------------------------------------------------------- |
+
+| Why      |  &nbsp;                                                                |
+| :------- | :--------------------------------------------------------------- |
 | Question | Why would we want to utilize a strategy such as the coil bypass? |
 | Answer   | Improved indoor air quality (IAQ)                                |
 
-ASHRAE's recommandation for the amount of air changes per hour (ACH) in a residential structure to be in the range of 3-5 ACH, and in
+
+ASHRAE's recommendation for the amount of air changes per hour (ACH) in a residential structure to be in the range of 3-5 ACH, and in
 general the higher the better, along with a MERV 13+ filter. In some / most cases the system airflow does not meet that criteria, especially
 low load homes or high volume homes.
 
@@ -46,7 +48,8 @@ We determine the volume of the conditioned space.
 
 ![volume-equation](/articles/images/2023-08-10-volume-equation.png)
 
-| **Where:** |                                       |
+
+| **Where:** | &nbsp;                                      |
 | ---------- | ------------------------------------- |
 | **V**      | _is the volume of the home_           |
 | **ACH**    | _is the desired air changes per hour_ |
@@ -54,7 +57,7 @@ We determine the volume of the conditioned space.
 
 Below is a table of the required CFM to meet the different air changes per hour.
 
-|                 |         CFM         |
+| &nbsp;                |         CFM         |
 | --------------- | :-----------------: |
 | (22,500 x 3)/60 | **_1,125 @ 3 ACH_** |
 | (22,500 x 4)/60 | **_1,500 @ 4 ACH_** |

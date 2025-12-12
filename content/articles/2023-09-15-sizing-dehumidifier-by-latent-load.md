@@ -11,7 +11,7 @@ you've done a load calculation and know the latent load of the structure.
 
 The formula above is used to solve for the pints per hour required to size a dehumidifier.
 
-| Where |              |
+| Where | &nbsp;              |
 | ----- | ------------ |
 | Ql    | Latent load  |
 | Ph    | Pints / hour |
@@ -20,7 +20,7 @@ We can then convert to pints per day by multiplying the answer by 24 hours, belo
 
 ![pints-per-day-formula](/articles/images/2023-09-15-pints-per-day.png)
 
-| Where |             |
+| Where | &nbsp;            |
 | ----- | ----------- |
 | Ql    | Latent load |
 | Pd    | Pints / day |

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+set -o nounset
+set -o pipefail
+
+format="webp"
+inpath=""
+
+while [[ $# -gt 0 ]]; do
+	if [[ $1 == "-f" ]] || [[ $1 == "--format" ]]; then
+		format="$1"
+	else
+		inpath="$1"
+	fi
+	shift
+done
+
+[[ ! -f $inpath ]] && echo -e "\e[31m[ERROR]:\e[0m '$inpath' not found." && exit 1
+
+outdir=$(dirname "$inpath")
+filebase=$(basename "$inpath")
+filebase=${filebase%%.png}
+outfile="$outdir/$filebase.$format"
+
+magick "$inpath" -resize "1200" "$outfile"

@@ -1,3 +1,5 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 *.gif filter=lfs diff=lfs merge=lfs -text
+*.avif filter=lfs dif=lfs merg=lfs -text
+*.webp filter=lfs dif=lfs merg=lfs -text
 
