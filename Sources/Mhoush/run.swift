@@ -1,6 +1,6 @@
 import Foundation
 import HTML
-import PathKit
+import SagaPathKit
 @preconcurrency import Saga
 import SagaParsleyMarkdownReader
 import SagaSwimRenderer
@@ -39,20 +39,20 @@ struct Run {
           .yearWriter(swim(renderYear)),
           // Atom feed for all articles, and a feed per tag
           .listWriter(
-            atomFeed(
+            Saga.atomFeed(
               title: SiteMetadata.name,
               author: SiteMetadata.author,
               baseURL: SiteMetadata.url,
-              summary: \.metadata.summary
+              summary: { $0.metadata.summary }
             ),
             output: "feed.xml"
           ),
           .tagWriter(
-            atomFeed(
+            Saga.atomFeed(
               title: SiteMetadata.name,
               author: SiteMetadata.author,
               baseURL: SiteMetadata.url,
-              summary: \.metadata.summary
+              summary: { $0.metadata.summary }
             ),
             output: "tag/[key]/feed.xml",
             tags: \.metadata.tags
@@ -68,10 +68,8 @@ struct Run {
         itemWriteMode: .keepAsFile,  // need to keep 404.md as 404.html, not 404/index.html
         writers: [.itemWriter(swim(renderPage))]
       )
-      // Run the steps we registered above
+      // Run the steps we registered above.
+      // Static files (images, css, etc.) are copied automatically.
       .run()
-      // All the remaining files that were not parsed to markdown, so for example images, raw html files and css,
-      // are copied as-is to the output folder.
-      .staticFiles()
   }
 }

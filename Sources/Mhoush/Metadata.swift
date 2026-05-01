@@ -41,6 +41,34 @@ struct ArticleMetadata: @unchecked Sendable, Metadata {
   /// Specify the primary tag for suggesting related articles, if not supplied,
   /// then most recent articles are suggested.
   let primaryTag: String?
+
+  enum CodingKeys: String, CodingKey {
+    case tags
+    case summary
+    case `public`
+    case image
+    case primaryTag
+  }
+
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+
+    if let tags = try? container.decode([String].self, forKey: .tags) {
+      self.tags = tags
+    } else if let tags = try? container.decode(String.self, forKey: .tags) {
+      self.tags = tags
+        .split(separator: ",")
+        .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        .filter { !$0.isEmpty }
+    } else {
+      self.tags = []
+    }
+
+    summary = try container.decodeIfPresent(String.self, forKey: .summary)
+    `public` = try container.decodeIfPresent(Bool.self, forKey: .public)
+    image = try container.decodeIfPresent(String.self, forKey: .image)
+    primaryTag = try container.decodeIfPresent(String.self, forKey: .primaryTag)
+  }
 }
 
 /// Represents valid metadata for the files that are not an `article`.

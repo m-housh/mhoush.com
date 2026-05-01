@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: netlify-production
+  cancel-in-progress: true
+
 jobs:
   docker-build:
     runs-on: ubuntu-latest
@@ -14,6 +18,7 @@ jobs:
     env:
       IMAGE_NAME: mhoush-netlify-build
       DOCKERFILE: docker/Dockerfile
+      PUBLISH_DIR: netlify-deploy
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,15 +38,18 @@ jobs:
 
       - name: Extract built site from image
         run: |
+          set -euo pipefail
           container_id=$(docker create $IMAGE_NAME:latest)
-          rm -rf netlify-deploy
-          docker cp "$container_id":/app ./netlify-deploy
-          docker rm "$container_id"
+          trap 'docker rm -f "$container_id" >/dev/null 2>&1 || true' EXIT
+          rm -rf "$PUBLISH_DIR"
+          mkdir -p "$PUBLISH_DIR"
+          docker cp "$container_id":/app/. "$PUBLISH_DIR"
+          test -f "$PUBLISH_DIR/index.html"
 
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=netlify-deploy --prod
+          args: deploy --dir=${{ env.PUBLISH_DIR }} --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
