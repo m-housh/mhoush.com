@@ -1,4 +1,5 @@
 ---
+image: https://mhoush.com/articles/images/2026-05-01-openhvac-router.png
 tags:
   - HVAC
   - open-source
