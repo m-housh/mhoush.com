@@ -5,23 +5,24 @@ tags:
   - controls
 ---
 
-# Open HVAC Control: A Case for an Open, Local-First Signal Router
+# Open HVAC Control:
 
-> **NOTE:** This article is a thought experiment and derived from notes surrounding the custom
-> controls that I built for my system.
->
-> Based primarily on the following frustrations:
->
-> - Can not control desired fan speed based on IAQ events
-> - Not many controls that allow reheat dehumidification
-> - Not many controls that offer dew-point based dehumidification setpoint
-> - I hate vendor lock-in
-> - I like to self host my data
+## A Case for an Open, Local-First Signal Router
 
-## Introduction
+This article is a thought experiment and derived from notes surrounding the custom controls that I
+built for my system.
+
+Based primarily on the following frustrations:
+
+- Can not control desired fan speed based on IAQ events
+- Not many controls that allow reheat dehumidification
+- Not many controls that offer dew-point based dehumidification setpoint
+- I hate vendor lock-in -- I like to self host my data
+
+### Introduction
 
 Residential HVAC systems sit at the intersection of comfort, energy, air quality, and safety. Yet
-their control systems remain largely closed, fragmented, and inflexible.
+thleir control systems remain largely closed, fragmented, and inflexible.
 
 At one end of the spectrum, conventional 24V thermostats are simple, reliable, and interoperable  
 but limited. At the other end, proprietary communicating systems unlock advanced performance but at
@@ -31,14 +32,14 @@ This creates an unnecessary tradeoff:
 
 **Open + flexible** → limited control capability
 
-- **Advanced + efficient** → vendor lock-in
+**Advanced + efficient** → vendor lock-in
 
 This document proposes:
 
 An **open, local-first HVAC control layer** built around a modular **signal router architecture**
 that augments — not replaces — existing systems.
 
-## Core Concept: HVAC as Signal Routing
+## Core Concept: HVAC Signal Routing
 
 Traditional thermostat signals collapse multiple behaviors into one. In reality, HVAC control
 consists of separate domains:
@@ -48,14 +49,12 @@ consists of separate domains:
 - Outdoor compressor behavior
 - Accessory control
 
-An open system separates these.
-
-This enables:
+An open control system separates these and enables:
 
 - High airflow without compressor
-- Ventilation without cooling
+- Ventilation with or without cooling
 - IAQ-driven recirculation
-- Humidity-aware operation
+- Better humidity-aware operation
 
 ## The Device: HVAC Signal Router
 
@@ -65,7 +64,11 @@ We need a new device class, it should act as a local control backplane:
 
 ### Architecture
 
-Thermostat → Signal Router → Indoor / Outdoor / Accessories
+Thermostat → HVAC Signal Router → Indoor / Outdoor / Accessories
+
+The HVAC signal router sits in-between the conventional thermostat signal and the output of that
+signal to the equipment. Giving it the opportunity to log the signal / intent, interrupt the signal,
+and/or pass through the signal.
 
 The router also connects:
 
@@ -75,11 +78,13 @@ The router also connects:
 
 ## Design Principles
 
+The following design principles are non-negotiable.
+
 ### Local First
 
 - Works without cloud
 - Cloud optional
-- Data stays local (unless cloud storage is setup)
+- Data stays local (optional cloud storage)
 
 ### Fail-Safe
 
@@ -100,14 +105,40 @@ Signals are endpoint-specific:
 - outdoor.Y1
 
 This allows control isolation in order to control fan speed independently from the outdoor unit
-operation.
+operation, for example.
 
 ## LEGO Architecture
 
 The "lego" architecture is just how I make it make sense in my mind ;)
 
-The concept would be that modules should be able to be added to the router based on the specific
-application.
+The concept would be that modules (legos) should be able to be added to the router based on the
+specific application.
+
+```
+                      ┌──────────────-┐
+                      │ Thermostat    │
+                      └──────┬───────-┘
+                             │
+                             ▼
+                    ┌─────────────────-┐
+                    │ HVAC signal      │
+                    │ router/backplane │
+                    └─────┬─────┬─────-┘
+                          │  ▲  │
+          ┌───────────────┘  │  └───────────────┐
+          ▼                  │                  ▼
+ ┌─────────────────┐         │         ┌─────────────────┐
+ │ Indoor equipment│         │          │ Outdoor equipment│
+ │ blower / heat   │         │        │ compressor / HP  │
+ └─────────────────┘         │          └─────────────────┘
+                             │
+                             ▼
+             sensors / IAQ / dampers / accessories
+                             ▲
+                             │
+                             ▼
+                algorithms + data logging
+```
 
 ### Hardware Modules
 

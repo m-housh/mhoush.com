@@ -186,6 +186,22 @@ h1 {
 	@apply mb-8;
 }
 
+.prose ul {
+  @apply list-disc pl-8 mb-8;
+}
+
+.prose ol {
+  @apply list-decimal pl-8 mb-8;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose li::marker {
+  color: var(--orange);
+}
+
 .prose img {
 	@apply my-10;
 }
