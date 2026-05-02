@@ -17,16 +17,18 @@ Based primarily on the following frustrations:
 - Can not control desired fan speed based on IAQ events
 - Not many controls that allow reheat dehumidification
 - Not many controls that offer dew-point based dehumidification setpoint
-- I hate vendor lock-in -- I like to self host my data
+- I hate vendor lock-in / prefer self hosted options (I think this a reason why most "new" control
+  companies fail to achieve that much adoption unless they're owned by google or amazon that has
+  large marketing spend / reach)
 
 ### Introduction
 
 Residential HVAC systems sit at the intersection of comfort, energy, air quality, and safety. Yet
-thleir control systems remain largely closed, fragmented, and inflexible.
+thleir control systems remain largely closed, fragmented, inflexible, and outdated.
 
 At one end of the spectrum, conventional 24V thermostats are simple, reliable, and interoperable  
-but limited. At the other end, proprietary communicating systems unlock advanced performance but at
-the cost of openness, flexibility, and user control.
+, but limited. At the other end, proprietary communicating systems unlock advanced performance but
+at the cost of openness, flexibility, and user control.
 
 This creates an unnecessary tradeoff:
 
@@ -37,7 +39,7 @@ This creates an unnecessary tradeoff:
 This document proposes:
 
 An **open, local-first HVAC control layer** built around a modular **signal router architecture**
-that augments — not replaces — existing systems.
+that augments, not replaces, existing systems.
 
 ## Core Concept: HVAC Signal Routing
 
@@ -52,7 +54,7 @@ consists of separate domains:
 An open control system separates these and enables:
 
 - High airflow without compressor
-- Ventilation with or without cooling
+- Ventilation with or without cooling/heating
 - IAQ-driven recirculation
 - Better humidity-aware operation
 
@@ -70,11 +72,12 @@ The HVAC signal router sits in-between the conventional thermostat signal and th
 signal to the equipment. Giving it the opportunity to log the signal / intent, interrupt the signal,
 and/or pass through the signal.
 
-The router also connects:
+The router also could connect:
 
 - Sensors
 - Control algorithms
-- Data logging pipeline
+- Data logging pipelines
+- Be the integration point for IOT hubs / control planes
 
 ## Design Principles
 
@@ -115,22 +118,22 @@ The concept would be that modules (legos) should be able to be added to the rout
 specific application.
 
 ```
-                      ┌──────────────-┐
-                      │ Thermostat    │
-                      └──────┬───────-┘
+                      ┌────────────┐
+                      │ Thermostat │
+                      └──────┬─────┘
                              │
                              ▼
-                    ┌─────────────────-┐
+                    ┌──────────────────┐
                     │ HVAC signal      │
                     │ router/backplane │
-                    └─────┬─────┬─────-┘
+                    └─────┬─────┬──────┘
                           │  ▲  │
           ┌───────────────┘  │  └───────────────┐
           ▼                  │                  ▼
- ┌─────────────────┐         │         ┌─────────────────┐
- │ Indoor equipment│         │          │ Outdoor equipment│
- │ blower / heat   │         │        │ compressor / HP  │
- └─────────────────┘         │          └─────────────────┘
+ ┌─────────────────┐         │         ┌──────────────────┐
+ │ Indoor equipment│         │         │ Outdoor equipment│
+ │ blower / heat   │         │         │ compressor / HP  │
+ └─────────────────┘         │         └──────────────────┘
                              │
                              ▼
              sensors / IAQ / dampers / accessories
@@ -214,6 +217,8 @@ Example insights:
 3. Standardize data + control
 4. Integrate with platforms
 5. Expand ecosystem
+
+Incremental adoption is possible. Only use the services / modules that you need.
 
 ## Long-Term Vision
 
