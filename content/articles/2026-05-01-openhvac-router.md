@@ -32,9 +32,8 @@ at the cost of openness, flexibility, and user control.
 
 This creates an unnecessary tradeoff:
 
-**Open + flexible** → limited control capability
-
-**Advanced + efficient** → vendor lock-in
+- **Open + flexible** → limited control capability
+- **Advanced + efficient** → vendor lock-in
 
 This document proposes:
 
@@ -60,9 +59,7 @@ An open control system separates these and enables:
 
 ## The Device: HVAC Signal Router
 
-We need a new device class, it should act as a local control backplane:
-
-**HVAC Signal Router**
+We need a new device class, it should act as a local control backplane.
 
 ### Architecture
 

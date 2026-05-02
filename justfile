@@ -41,7 +41,7 @@ build-swift:
 # Run docker image.
 [group('dev')]
 run-docker:
-  @podman run --rm -it -p 8080:80 -v ./content/static:/app/static {{docker_image}}:{{docker_tag}}
+  @podman run --rm -it -p 8888:80 -v ./content/static:/app/static {{docker_image}}:{{docker_tag}}
 
 # Run caddy server with volumes mounted for local development.
 [group('dev')]
