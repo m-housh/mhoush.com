@@ -15,7 +15,7 @@
   --color:#fff;
   --border-color:hsla(0,0%,100%,0.1);
   --phoneWidth:(max-width:684px);
-  --tabletWidth:(max-width:900px)
+  --tabletWidth:(max-width:900px);
   --orange:#F5A87F;
   --green:#A6E3A1;
 }
@@ -190,16 +190,33 @@ h1 {
 	@apply mb-8;
 }
 
+.prose blockquote {
+  border-left: 4px solid var(--orange);
+  background: hsla(0, 0%, 100%, 0.04);
+  color: var(--color);
+  font-style: italic;
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 .prose ul {
-  @apply list-disc pl-8 mb-8;
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
 }
 
 .prose ol {
-  @apply list-decimal pl-8 mb-8;
+  list-style-type: decimal;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
 }
 
 .prose li {
-  @apply mb-2;
+  margin-bottom: 0.5rem;
 }
 
 .prose li::marker {
