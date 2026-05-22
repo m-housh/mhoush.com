@@ -171,7 +171,9 @@ h1 {
 /* PROSE */
 
 .prose {
-	@apply lg:mx-[5rem] lg:max-w-[90vw];
+  width: 100%;
+  max-width: 80ch;
+  margin-inline: auto;
 }
 
 .prose code {
@@ -250,13 +252,13 @@ h1 {
 @media (min-width: 860px) {
   .prose pre {
     margin-left: -20px;
-    width: 840px;
+    width: calc(100% + 40px);
     padding-left: 20px;
   }
 
   body.projects .bg-sub {
     margin-left: -20px;
-    width: 840px;
+    width: calc(100% + 40px);
     padding-left: 20px;
   }
 }

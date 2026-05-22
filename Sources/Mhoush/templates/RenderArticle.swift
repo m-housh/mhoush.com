@@ -106,7 +106,7 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
     title: context.item.title,
     extraHeader: generateHeader(.article(context.item))
   ) {
-    div(class: "w-full mx-20 max-w-[90vw]") {
+    div(class: "w-full max-w-[90vw] mx-auto px-6 lg:px-0") {
       article(class: "prose") {
         h1 { context.item.title }
         div(class: "-mt-6") {
