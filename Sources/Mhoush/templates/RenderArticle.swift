@@ -150,7 +150,7 @@ func renderArticle(context: ItemRenderingContext<ArticleMetadata>) -> Node {
         h2(class: "text-4xl font-extrabold mb-8") { "Author" }
         div(class: "flex flex-col lg:flex-row gap-8") {
           div(class: "flex-[0_0_120px]") {
-            img(class: "w-[120px] h-[120px] rounded-full", src: "/static/images/avatar.png")
+            img(class: "w-[120px] h-[120px] rounded-full", src: "/static/images/avatar.webp")
           }
 
           div(class: "prose") {
