@@ -1,6 +1,6 @@
 ---
 tags: general, Alicia, grief, life
-draft: true
+draft: false
 ---
 
 # The Quiet Things That No One Ever Knows
